@@ -1,0 +1,8 @@
+<tr id="<%=brand.id %>">
+  <td class="text-center"><%=brand.id %></td>
+  <td class="text-center"><%=brand.descrip_marca.titleize %></td>
+  <td id="cantidad_marca" class="text-center"><span class="badge bg-green-gradient"><%= Product.where("marca = ?", brand.id).length %></span></td>
+  <td class="text-center">
+    <%=link_to 'Editar', edit_brand_path(brand.id), remote: true,class: 'btn btn-info btn-sm' %>
+  </td>
+</tr>

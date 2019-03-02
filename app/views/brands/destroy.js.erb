@@ -1,0 +1,19 @@
+<% if @tipo_del == "success" %>
+  $(".borrar-marca").bind('ajax:success', function(){
+      $(this).closest('tr').fadeOut();
+  });
+
+  toastr["<%= @tipo_del %>"]("<%= @mensaje_del %>", "<%= @titulo_del %>", {
+      positionClass: "toast-top-right",
+      closeButton: "true",
+      progressBar: "true",
+      preventDuplicates: "true"
+  });
+<% else %>
+  toastr["<%= @tipo_del %>"]("<%= @mensaje_del %>", "<%= @titulo_del %>", {
+      positionClass: "toast-top-right",
+      closeButton: "true",
+      progressBar: "true",
+      preventDuplicates: "true"
+  });
+<% end %>

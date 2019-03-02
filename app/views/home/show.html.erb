@@ -1,0 +1,99 @@
+<section class="content-header">
+  <h1>
+    Ofertas
+    <small>vigentes de acuerdo a la página: https://www.tiendeo.cl/</small>
+  </h1>
+</section>
+<section class="content">
+  <%=link_to "Volver", home_index_path, class: "btn btn-danger" %>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h4>Listado de ofertas de supermercados</h4>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th style="width: 5px">SuperMercado</th>
+              <th style="width: 15px">Nombre Oferta</th>
+              <th style="width: 25px">Fecha de vencimiento</th>
+              <th style="width: 25px">Ir a catálogo</th>
+            </tr>
+            </thead>
+            <tbody>
+              <%if Date.today.strftime("%A").downcase == 'friday' %>
+
+                <tr class="danger">
+                  <td><span class="fa fa-exclamation-triangle"></span> Portal de 'Las últimas noticias'</td>
+                  <td>Ofertas generales</td>
+                  <td>Sin Información</td>
+                  <td><a id="buton" type="button" class="btn btn-danger" href="http://www.lun.com/" target="blank"><span class="fa fa-exclamation-triangle"></span> Catálogo</a></td>
+                </tr>
+
+              <%end %>
+              <%@Lista_Ofertas.each do |oferta| %>
+
+                <%if oferta.fecha <= 1 && oferta.fecha > -1%>
+
+                  <tr class="danger">
+                    <td><span class="fa fa-exclamation-triangle"></span> <%=oferta.supermercado %></td>
+                    <td><%=oferta.nombre_oferta %></td>
+                    <%if oferta.fecha == -1 %>
+                      <td>Sin informacion</td>
+                    <%else %>
+                      <td>Válido por <%=oferta.fecha %> <%if oferta.fecha > 1 %> días <%else %> día <%end %></td>
+                    <%end %>
+                    <td><a id="buton" type="button" class="btn btn-danger" href="<%=oferta.enlace%>" target="blank"><span class="fa fa-exclamation-triangle"></span> Catálogo</a></td>
+                  </tr>
+
+                <%elsif oferta.fecha > 1 && oferta.fecha <=3%>
+
+                  <tr class="warning">
+                    <td><%=oferta.supermercado %></td>
+                    <td><%=oferta.nombre_oferta %></td>
+                    <%if oferta.fecha == -1 %>
+                      <td>Sin informacion</td>
+                    <%else %>
+                      <td>Válido por <%=oferta.fecha %> <%if oferta.fecha > 1 %> días <%else %> día <%end %></td>
+                    <%end %>
+                    <td><a type="button" class="btn btn-default" href="<%=oferta.enlace%>" target="blank">Catálogo</a></td>
+                  </tr>
+
+                <%else %>
+
+                  <tr>
+                    <td><%=oferta.supermercado %></td>
+                    <td><%=oferta.nombre_oferta %></td>
+                    <%if oferta.fecha == -1 %>
+                      <td>Sin informacion</td>
+                    <%else %>
+                      <td>Válido por <%=oferta.fecha %> <%if oferta.fecha > 1 %> días <%else %> día <%end %></td>
+                    <%end %>
+                    <td><a type="button" class="btn btn-default" href="<%=oferta.enlace%>" target="blank">Catálogo</a></td>
+                  </tr>
+
+                <%end %>
+              <% end %>
+            </tbody>
+            <tfoot>
+            <tr>
+              <th style="width: 5px">SuperMercado</th>
+              <th style="width: 15px">Nombre Oferta</th>
+              <th style="width: 25px">Fecha de vencimiento</th>
+              <th style="width: 25px">Ir a catálogo</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+
+  <%=link_to "Volver", home_index_path, class: "btn btn-danger" %>
+</section>

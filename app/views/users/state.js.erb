@@ -1,0 +1,26 @@
+<% if @user.errors.empty? %>
+
+  <% if @tipo_estado == "success" %>
+
+    $('table tbody tr#<%= @user.id %>').replaceWith(' <%= j render "row", user: @user %>');
+
+    toastr["<%= @titulo_estado %>"]("<%= @mensaje_estado %>", "<%= @tipo_estado  %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+
+  <% else %>
+
+    toastr["<%= @titulo_estado %>"]("<%= @mensaje_estado %>", "<%= @tipo_estado %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+
+  <% end %>
+<% else %>
+  alert('<% @user.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+<% end %>

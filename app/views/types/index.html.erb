@@ -1,0 +1,34 @@
+<div class="box">
+  <div class="box-header">
+    <span>Listado de tipos de productos registrados</span>
+    <%=link_to '<span class="fa fa-plus-circle"></span>  Añadir tipo'.html_safe, new_type_path, remote: true ,class: "btn btn-success pull-right"%>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th style="width: 10px" class="text-center">ID</th>
+          <th style="width: 25px" class="text-center">Tipo</th>
+          <th style="width: 25px" class="text-center">Cantidad de productos</th>
+          <th style="width: 10px" class="text-center">Editar tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+      <%@types.each do |type| %>
+        <%= render "row", type: type %>
+      <% end %>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th style="width: 10px" class="text-center">ID</th>
+        <th style="width: 25px" class="text-center">Tipo</th>
+        <th style="width: 25px" class="text-center">Cantidad de productos</th>
+        <th style="width: 10px" class="text-center">Editar tipo</th>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>
+<%=link_to "Volver", codes_path, class: "btn btn-danger btn-lg" %>

@@ -1,0 +1,119 @@
+<% doc2 = HTTParty.get("https://www.tiendeo.cl/Folletos-Catalogos/supermercados") %>
+<% @parse_page2 ||= Nokogiri::HTML(doc2) %>
+<% @nombres = @parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item").css(".column.first").css("h4").children.map { |nombres| nombres.text}.compact %>
+<% @supermercados =  @parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item").css(".badgerow.badge-cat").css("a").children.map{|markers| markers.text}.compact%>
+<header class="main-header">
+  <%= content_tag :a, href: '/home', class: 'logo' do %>
+    <span class="logo-mini">
+    <b>A</b>T</span>
+    <span class="logo-lg">
+    <b>AdminLTE</b></span>
+  <% end %>
+
+  <nav class="navbar navbar-static-top">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Toggle navigation</span>
+    </a>
+
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <%if Date.today.strftime("%A").downcase == 'friday' %>
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning"><%=@nombres.length.to_i + 1%></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Tiene <%=@nombres.length.to_i + 1%> <%if @nombres.length == 1 %> notificacion <%else %> notificaciones <%end %></li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <%if @nombres.size.to_i > 7 %>
+                    <%for i in(0..6) %>
+                      <li>
+                        <a>
+                          <i class="fa fa-shopping-cart text-aqua"></i><%= @supermercados[i] %><span class="text-muted"><%=@nombres[i] %></span>
+                        </a>
+                      </li>
+                    <%end %>
+                  <%else %>
+                    <%(0..@nombres.size).each do |i| %>
+                      <%if i < @nombres.size %>
+                        <li>
+                          <a>
+                            <i class="fa fa-shopping-cart text-aqua"></i><%=@supermercados[i] %><span class="text-muted"><%=@nombres[i]%></span>
+                          </a>
+                        </li>
+                      <%end %>
+                    <%end %>
+                  <%end %>
+                </ul>
+              </li>
+              <li class="footer"><%=link_to "Ver todo", home_path(1) %></li>
+            </ul>
+          </li>
+        <%else %>
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning"><%=@nombres.length.to_i%></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Tiene <%=@nombres.length.to_i%> <%if @nombres.length == 1 %> notificacion <%else %> notificaciones <%end %></li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <%if @nombres.size.to_i > 7 %>
+                    <%for i in(0..6) %>
+                      <li>
+                        <a>
+                          <i class="fa fa-shopping-cart text-aqua"></i><%=@supermercados[i]  %><span class="text-muted"><%=@nombres[i]%></span>
+                        </a>
+                      </li>
+                    <%end %>
+                  <%else %>
+                    <%(0..@nombres.size).each do |i| %>
+                      <%if i < @nombres.size %>
+                        <li>
+                          <a>
+                            <i class="fa fa-shopping-cart text-aqua"></i><%=@supermercados[i]  %><span class="text-muted"><%=@nombres[i]%></span>
+                          </a>
+                        </li>
+                      <%end %>
+                    <%end %>
+                  <%end %>
+                </ul>
+              </li>
+              <li class="footer"><%=link_to "Ver todo", home_path(1) %></li>
+            </ul>
+          </li>
+        <%end %>
+
+        <li class="dropdown user user-menu">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <%= image_tag "default-avatar.jpg", class: "user-image" %>
+            <span class="hidden-xs"><%=current_user.nombre_usuario.titleize%> <%=current_user.apellidos_usuario.titleize%></span>
+          </a>
+
+          <ul class="dropdown-menu">
+            <li class="user-header">
+              <%= image_tag "default-avatar.jpg", class: "img-circle" %>
+              <p>
+                <%=current_user.nombre_usuario.titleize%> <%=current_user.apellidos_usuario.titleize%>
+                <small>Miembro desde <%=current_user.created_at.strftime('%d-%m-%Y')%></small>
+              </p>
+            </li>
+            <li class="user-footer">
+              <div class="pull-left">
+                <%= link_to 'Mi Perfil', class: 'btn btn-default -btn-flat' %>
+              </div>
+              <div class="pull-right">
+                <%= link_to 'Salir',destroy_user_session_path, :method => :delete, class: 'btn btn-default btn-flat' %>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

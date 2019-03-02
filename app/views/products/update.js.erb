@@ -1,0 +1,30 @@
+<% if @product.errors.empty? %>
+
+  <% if @tipo_edit == "success" %>
+
+    $("#product_<%= @product.id %>").fadeOut(1000, function(){
+        $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+        $("#container_products").prepend('<%= j render @product %>');
+        $("#product_<%= @product.id %>").hide().fadeIn(1000);
+    });
+
+    $("#modal-product").modal('hide');
+
+    $("#EditarProducto_<%= @product.id %>").modal("hide"); //Cierre del modal
+    toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+  <% else %>
+    toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+  <% end %>
+<% else %>
+  alert('<%= @product.errors.full_messages[0] %>');
+<% end %>

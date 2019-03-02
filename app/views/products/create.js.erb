@@ -1,0 +1,32 @@
+<% if @product.errors.empty? %>
+
+  <% if @tipo == "success" %>
+    $("#modal-product").modal('hide');
+    //$("#modal-product :input").val('');
+    $(".product_nombre").val("");
+    $(".product_stock").val("");
+    $(".product_marca").html("");
+    $(".product_tipo").html("");
+    $(".product_ubicacion").val("");
+    $("#container_products").prepend('<%= j render @product %>');
+    toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+    $("#product_<%= @product.id %>").hide().fadeIn(1000);
+
+  <% else %>
+
+    toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+  <% end %>
+
+<% else %>
+  alert('<% @product.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+<% end %>

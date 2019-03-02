@@ -1,0 +1,21 @@
+<tr id="<%=user.id %>">
+  <td class="text-center"><%=user.id %></td>
+  <td class="text-center"><%=user.login.downcase %></td>
+  <td class="text-center"><%=user.nombre_usuario.titleize%> <%=user.apellidos_usuario.titleize %></td>
+  <td class="text-center"><%=user.email.downcase%></td>
+  <td class="text-center"><%=State.find(user.estado).descrip_estado.titleize %></td>
+  <td class="text-center">
+    <%=link_to 'Editar', edit_user_path(user.id), remote: true,class: 'btn btn-info btn-sm' %>
+  </td>
+  <td class="text-center">
+    <%if user.estado == 1 %>
+      <%if current_user.id != user.id %>
+        <%=link_to 'Desactivar', change_state_path(user.id, user.estado), remote: true,class: 'btn bg-orange btn-sm' %>
+      <%else %>
+        <button type="button" class="btn bg-orange btn-sm" disabled="disabled">Desactivar</button>
+      <%end %>
+    <%else %>
+      <%=link_to 'Activar', change_state_path(user.id, user.estado), remote: true,class: 'btn bg-orange btn-sm' %>
+    <%end %>
+  </td>
+</tr>

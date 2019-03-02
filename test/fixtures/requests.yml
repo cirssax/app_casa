@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2019-01-31 14:59:06
+  cantidad: 1
+  estado: 1
+  usuario: 1
+  producto: 1
+
+two:
+  fecha: 2019-01-31 14:59:06
+  cantidad: 1
+  estado: 1
+  usuario: 1
+  producto: 1

@@ -1,0 +1,29 @@
+<% if @brand.errors.empty? %>
+
+  <% if @tipo_edit == "success" %>
+    $("#modal-brand").modal('hide');
+    $(".marca_nombre").val("");
+
+    $('table tbody tr#<%= @brand.id %>').replaceWith(' <%= j render "row", brand: @brand %>');
+
+    toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+
+  <% else %>
+
+    toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+
+  <% end %>
+
+<% else %>
+  alert('<% @brand.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+<% end %>

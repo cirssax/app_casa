@@ -1,0 +1,20 @@
+<% if @tipo_del == "success" %>
+
+  $("#product_<%= @product.id %>").fadeOut(1000, function(){
+      $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+  });
+
+  toastr["<%= @tipo_del %>"]("<%= @mensaje_del %>", "<%= @titulo_del %>", {
+      positionClass: "toast-top-right",
+      closeButton: "true",
+      progressBar: "true",
+      preventDuplicates: "true"
+  });
+<% else %>
+  toastr["<%= @tipo_del %>"]("<%= @mensaje_del %>", "<%= @titulo_del %>", {
+      positionClass: "toast-top-right",
+      closeButton: "true",
+      progressBar: "true",
+      preventDuplicates: "true"
+});
+<% end %>

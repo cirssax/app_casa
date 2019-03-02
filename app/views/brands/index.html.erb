@@ -1,0 +1,34 @@
+<div class="box">
+  <div class="box-header">
+    <span>Listado de marcas registradas</span>
+    <%=link_to '<span class="fa fa-plus-circle"></span>  Añadir marca'.html_safe, new_brand_path, remote: true ,class: "btn btn-success pull-right"%>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th style="width: 10px" class="text-center">ID</th>
+          <th style="width: 25px" class="text-center">Marca</th>
+          <th style="width: 25px" class="text-center">Cantidad de productos</th>
+          <th style="width: 10px" class="text-center">Editar marca</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@brands.each do |brand| %>
+          <%= render "row", brand: brand %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th style="width: 10px" class="text-center">ID</th>
+          <th style="width: 25px" class="text-center">Marca</th>
+          <th style="width: 25px" class="text-center">Cantidad de productos</th>
+          <th style="width: 10px" class="text-center">Editar marca</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>
+<%=link_to "Volver", codes_path, class: "btn btn-danger btn-lg" %>

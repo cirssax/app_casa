@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <h4>Mantenedor de Tablas de códigos</h4>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th style="width: 34px">Tabla</th>
+            <th style="width: 33px">Cantidad de elementos</th>
+            <th style="width: 33px">Detalles</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Usuarios del sistema</td>
+              <td><span class="badge bg-lime-active"><%=@users.length %></span></td>
+              <td><%=link_to "Tabla usuarios", users_path, class: "btn btn-primary"%></td>
+            </tr>
+            <tr>
+              <td>Tipos de productos</td>
+              <td><span class="badge bg-green-active"><%=@types.length %></span></td>
+              <td><%=link_to "Tabla tipos", types_path, class: "btn btn-primary"%></td>
+            </tr>
+            <tr>
+              <td>Marcas de productos</td>
+              <td><span class="badge bg-yellow-active"><%=@brands.length %></span></td>
+              <td><%=link_to "Tabla marcas", brands_path, class: "btn btn-primary"%></td>
+            </tr>
+            <tr>
+              <td>Roles de usuarios</td>
+              <td><span class="badge bg-orange-active"><%=@roles.length %></span></td>
+              <td><button class="btn btn-primary" type="button">Tabla roles</button></td>
+            </tr>
+            <tr>
+              <td>Estado de usuarios</td>
+              <td><span class="badge bg-aqua-active"><%=@states.length %></span></td>
+              <td><button class="btn btn-primary" type="button">Tabla estados</button></td>
+            </tr>
+            <tr>
+              <td>Estado de consumo de productos</td>
+              <td><span class="badge bg-gray-active"><%=@situations.length %></span></td>
+              <td><button class="btn btn-primary" type="button">Tabla situaciones</button></td>
+            </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+            <th style="width: 34px">Tabla</th>
+            <th style="width: 33px">Cantidad de elementos</th>
+            <th style="width: 33px">Detalles</th>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<tr id="<%=type.id %>">
+  <td class="text-center"><%=type.id %></td>
+  <td class="text-center"><%=type.descrip_tipo.titleize %></td>
+  <td id="cantidad_tipo" class="text-center"><span class="badge bg-green-gradient"><%= Product.where("tipo = ?", type.id).length %></span></td>
+  <td class="text-center">
+    <%=link_to 'Editar', edit_type_path(type.id), remote: true,class: 'btn btn-info btn-sm' %>
+  </td>
+</tr>

@@ -1,0 +1,36 @@
+<% if @user.errors.empty? %>
+
+  <% if @tipo == "success" %>
+    $("#modal-user").modal('hide');
+
+    $(".user_login").val("");
+    $(".user_email").val("");
+    $(".user_nombre").val("");
+    $(".user_apellido").val("");
+    $(".user_rol").html("");
+    $(".user_estado").html("");
+    $(".Pass1").val("");
+    $(".Pass2").val("");
+
+    $('table tbody').append(' <%= j render "row", user: @user %>');
+
+    toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+
+  <% else %>
+
+    toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+  <% end %>
+
+<% else %>
+  alert('<% @user.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+<% end %>

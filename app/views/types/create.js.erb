@@ -1,0 +1,28 @@
+<% if @type.errors.empty? %>
+
+  <% if @tipo == "success" %>
+    $("#modal-type").modal('hide');
+    $(".tipo_nombre").val("");
+
+    $('table tbody').append(' <%= j render "row", type: @type %>');
+
+    toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+
+  <% else %>
+
+    toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+  <% end %>
+
+<% else %>
+  alert('<% @type.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+<% end %>

@@ -1,0 +1,76 @@
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="product_<%= product.id %>">
+  <div class="box box-success box-solid">
+    <div class="box-header with-border">
+      <h3 class="box-title"><%=product.nombre_producto.titleize %></h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+      </div>
+    </div>
+    <div class="box-body">
+      <ul class="nav nav-stacked">
+        <li><a>Cantidad <span class="pull-right badge bg-green-gradient"><%= product.stock %></span></a></li>
+        <li><a>Marca <span class="pull-right badge bg-orange"><%= Brand.find(product.marca).descrip_marca.titleize %></span></a></li>
+      </ul>
+    </div> <!--cierre box body-->
+    <div class="box-footer">
+      <%=link_to 'Editar', edit_product_path(product.id), remote: true,class: 'btn btn-info' %>
+      <button type="button" class="btn bg-olive" data-toggle="modal" data-target="#Ubicacion_<%=product.id %>">
+        Detalle
+      </button>
+    </div>
+  </div> <!--cierre caja del producto-->
+</div> <!--cierre de grilla de bootstrap-->
+
+<div class="modal modal-success  fade" id="Ubicacion_<%=product.id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Editar Producto</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <label>Nombre producto: </label>
+              <label class="form-control"><%=product.nombre_producto %></label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <label>Cantidad disponible:</label>
+              <label class="form-control"><%=product.stock %></label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <label>Marca:</label>
+              <label class="form-control"><%=Brand.find(product.marca).descrip_marca.titleize %></label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <label>Tipo:</label>
+              <label class="form-control"><%=Type.find(product.tipo).descrip_tipo.titleize %></label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <label>Ubicacion:</label>
+              <label class="form-control"><%=product.ubicacion.downcase %></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
