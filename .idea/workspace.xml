@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f1dbeb-45c7-44a7-a473-c3b548f162d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/admin/shared/_sidebar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/shared/_sidebar.html.erb" afterDir="false" />
-    </list>
+    <list default="true" id="f2f1dbeb-45c7-44a7-a473-c3b548f162d1" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/log/" />
@@ -367,12 +365,12 @@
       <workItem from="1551463655847" duration="2944000" />
       <workItem from="1551479232049" duration="6574000" />
       <workItem from="1551545697618" duration="3696000" />
-      <workItem from="1551556189726" duration="2661000" />
+      <workItem from="1551556189726" duration="3329000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162701000" />
+    <option name="totallyTimeSpent" value="163369000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -385,7 +383,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1440" height="782" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17073171" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
