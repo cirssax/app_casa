@@ -45,6 +45,8 @@
                     <td><%=oferta.nombre_oferta %></td>
                     <%if oferta.fecha == -1 %>
                       <td>Sin informacion</td>
+                    <%elsif oferta.fecha == 0%>
+                      <td>Vence hoy</td>
                     <%else %>
                       <td>Válido por <%=oferta.fecha %> <%if oferta.fecha > 1 %> días <%else %> día <%end %></td>
                     <%end %>
@@ -58,6 +60,8 @@
                     <td><%=oferta.nombre_oferta %></td>
                     <%if oferta.fecha == -1 %>
                       <td>Sin informacion</td>
+                    <%elsif oferta.fecha == 0%>
+                      <td>Vence hoy</td>
                     <%else %>
                       <td>Válido por <%=oferta.fecha %> <%if oferta.fecha > 1 %> días <%else %> día <%end %></td>
                     <%end %>
