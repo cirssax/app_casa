@@ -19,5 +19,4 @@
 //= require layer_handler
 //= require application_back
 //= require front/bootstrap/bootstrap
-//= require back/plugins/toastr/toastr.js
 //= require_tree .
