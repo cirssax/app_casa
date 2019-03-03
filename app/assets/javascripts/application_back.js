@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require back/plugins/bootstrap/bootstrap.min.js
 //= require back/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min
-//= require back/plugins/toastr/toastr.js
 //= require back/app
 //= require back/plugins/jQueryUI/jquery-ui.min.js
 
