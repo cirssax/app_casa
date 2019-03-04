@@ -17,6 +17,11 @@
 <body class="hold-transition skin-green sidebar-mini">
 
 <div class="wrapper">
+
+  <% if current_user %>
+    <%=  auto_session_timeout_js frequency: 60 %>
+  <%  end %>
+
   <%= render partial: 'admin/shared/header' %>
   <%= render partial: 'admin/shared/sidebar' %>
   <div class="content-wrapper">

@@ -17,6 +17,10 @@ group :production do
 end
 #
 
+gem 'auto-session-timeout' #gema para controlar el tiempo de inactividad
+
+gem 'toastr-rails'
+
 gem 'cancancan', '~> 2.0'
 
 # Use Puma as the app server

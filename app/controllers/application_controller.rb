@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :permitted_parameters, if: :devise_controller?
 
+  auto_session_timeout 2.minutes #control de la sesion inactiva con máximo 2 minutos
+
   def inicio
 
   end
@@ -19,5 +21,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+
 
 end

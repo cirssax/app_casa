@@ -1,4 +1,19 @@
 <%if current_user.rol == 1 %>
+
+  <% if @titulo_edit=="success" %>
+
+      <script>
+          toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
+              positionClass: "toast-top-right",
+              closeButton: "true",
+              progressBar: "true",
+              preventDuplicates: "true"
+          });
+      </script>
+
+  <% end %>
+
+
   <%=link_to "Volver", codes_path, class: "btn btn-danger" %>
   <br><br>
   <div class="box">
