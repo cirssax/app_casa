@@ -80,17 +80,17 @@ class TypesController < ApplicationController
           if @type.update(types_params)
             format.html {redirect_to @type, notice: "Tipo actualizado correctamente"}
             format.json {render :show, status: :created, location: @type}
-            format.js
-            @titulo_edit = "Edicion de marca"
+            format.js {@titulo_edit = "Edicion de marca"
             @mensaje_edit = "Se actualizado la marca correctamente"
-            @tipo_edit = "success"
+            @tipo_edit = "success"}
+
           else
             format.html {render :new}
             format.json {render json: @type.errors, status: :unprocessable_entity}
-            format.js
+            format.js{
             @titulo_edit = "Edicion de marca"
             @mensaje_edit = "Ha ocurrido un error"
-            @tipo_edit = "danger"
+            @tipo_edit = "danger"}
           end
         end
       end
