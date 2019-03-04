@@ -1,17 +1,18 @@
 <% if @type.errors.empty? %>
 
   <% if @tipo_edit == "success" %>
-  $("#modal-type").modal('hide');
-  $(".tipo_nombre").val("");
+    $("#modal-type").modal('hide');
+    $(".tipo_nombre").val("");
 
-  $('table tbody tr#<%= @type.id %>').replaceWith(' <%= j render "row", type: @type %>');
+    $('table tbody tr#<%= @type.id %>').replaceWith(' <%= j render "row", type: @type %>');
 
-  toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
-      positionClass: "toast-top-right",
-      closeButton: "true",
-      progressBar: "true",
-      preventDuplicates: "true"
-  });
+    toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+    alert(<%=@mensaje %>)
 
 <% else %>
 
@@ -21,6 +22,7 @@
       progressBar: "true",
       preventDuplicates: "true"
   });
+  alert(<%=@mensaje %>)
 
 <% end %>
 
