@@ -4,8 +4,12 @@ class TypesController < ApplicationController
   # GET /types
   # GET /types.json
   def index
-    @types  = Type.order(:id)
-    @type = Type.new
+    if current_user.rol == 1
+      @types  = Type.order(:id)
+      @type = Type.new
+    else
+      @mensaje = "Seccion solo para administrador"
+    end
   end
 
   # POST /types

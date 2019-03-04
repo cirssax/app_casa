@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:id)
+    if current_user.rol == 1
+      @users = User.order(:id)
+    else
+      @mensaje = "Seccion exclusiva para administrador"
+    end
   end
 
   # POST /users

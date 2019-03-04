@@ -5,8 +5,12 @@ class BrandsController < ApplicationController
   # GET /brands
   # GET /bands.json
   def index
-    @brands = Brand.order(:id)
-    @brand = Brand.new
+    if current_user.rol == 1
+      @brands = Brand.order(:id)
+      @brand = Brand.new
+    else
+      @mensaje = "Seccion exclusiva para administrador"
+    end
   end
 
   # POST /brands

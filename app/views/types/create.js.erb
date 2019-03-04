@@ -6,6 +6,8 @@
 
     $('table tbody').append(' <%= j render "row", type: @type %>');
 
+    alert(<%=@mensaje %>)
+
     toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
         positionClass: "toast-top-right",
         closeButton: "true",
@@ -14,6 +16,8 @@
     });
 
   <% else %>
+
+    alert(<%=@mensaje %>)
 
     toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
         positionClass: "toast-top-right",

@@ -15,6 +15,10 @@ group :production do
   gem 'pg', '>= 0.18', '< 2.0'
   gem 'rails_12factor', group: :production
 end
+#
+
+gem 'cancancan', '~> 2.0'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
