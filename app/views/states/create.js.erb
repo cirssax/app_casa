@@ -1,10 +1,10 @@
-<% if @type.errors.empty? %>
+<% if @state.errors.empty? %>
 
   <% if @tipo == "success" %>
-    $("#modal-type").modal('hide');
+    $("#modal-state").modal('hide');
     $(".tipo_nombre").val("");
 
-    $('table tbody').append(' <%= j render "row", type: @type %>');
+    $('table tbody').append(' <%= j render "row", state: @state %>');
 
 
     toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
@@ -26,5 +26,5 @@
   <% end %>
 
 <% else %>
-  alert('<% @type.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+  alert('<% @state.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
 <% end %>

@@ -19,7 +19,7 @@
 <div class="wrapper">
 
   <% if current_user %>
-    <%=  auto_session_timeout_js frequency: 60 %>
+    <%=  auto_session_timeout_js frequency: 300 %>
   <%  end %>
 
   <%= render partial: 'admin/shared/header' %>

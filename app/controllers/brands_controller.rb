@@ -25,7 +25,7 @@ class BrandsController < ApplicationController
       @tipo = "warning"
     else
       #Verificacion de la repeticion del nombre
-      if !RepeticionMarcaCreate(@brands, @brand.descrip_marca)
+      if !RepeticionMarcaCreate(@brands, params[:brand][:descrip_marca])
         @titulo = "Creacion de marca"
         @mensaje = "Ya existe una marca con ese nombre"
         @tipo = "warning"

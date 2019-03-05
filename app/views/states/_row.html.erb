@@ -1,0 +1,7 @@
+<tr id="<%=state.id %>">
+  <td class="text-center"><%=state.id %></td>
+  <td class="text-center"><%=state.descrip_estado.titleize %></td>
+  <td class="text-center">
+    <%=link_to 'Editar', edit_state_path(state.id), remote: true,class: 'btn btn-info btn-sm' %>
+  </td>
+</tr>

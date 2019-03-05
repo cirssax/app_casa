@@ -1,0 +1,29 @@
+<% if @state.errors.empty? %>
+
+  <% if @tipo_edit == "success" %>
+    $("#modal-state").modal('hide');
+    $(".tipo_nombre").val("");
+
+    $('table tbody tr#<%= @state.id %>').replaceWith(' <%= j render "row", state: @state %>');
+
+    toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+
+  <% else %>
+
+    toastr["<%= @tipo_edit %>"]("<%= @mensaje_edit %>", "<%= @titulo_edit %>", {
+        positionClass: "toast-top-right",
+        closeButton: "true",
+        progressBar: "true",
+        preventDuplicates: "true"
+    });
+
+  <% end %>
+
+<% else %>
+  alert('<% @state.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+<% end %>

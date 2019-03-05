@@ -1,1 +1,65 @@
-<h2>Estado de los usuarios</h2>
+<%if current_user.rol == 1 %>
+  <%=link_to "Volver", codes_path, class: "btn btn-danger" %>
+  <br><br>
+  <div class="box">
+    <div class="box-header">
+      <span>Listado de estados de usuarios registrados</span>
+      <%=link_to '<span class="fa fa-plus-circle"></span>  Añadir estado'.html_safe, new_state_path, remote: true ,class: "btn btn-success pull-right"%>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th style="width: 10px" class="text-center">ID</th>
+          <th style="width: 25px" class="text-center">Estado</th>
+          <th style="width: 10px" class="text-center">Editar estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%@states.each do |state| %>
+          <%= render "row", state: state %>
+        <% end %>
+        </tbody>
+        <tfoot>
+        <tr>
+          <th style="width: 10px" class="text-center">ID</th>
+          <th style="width: 25px" class="text-center">Estado</th>
+          <th style="width: 10px" class="text-center">Editar estado</th>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <%=link_to "Volver", codes_path, class: "btn btn-danger" %>
+<%else %>
+  <section class="content-header">
+    <h1>
+      404 Error
+    </h1>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="error-page">
+      <h2 class="headline text-yellow"> 404</h2>
+
+      <div class="error-content">
+        <h3><i class="fa fa-warning text-yellow"></i> Oops! Pagina no encontrada.</h3>
+        <p>
+          No se pudo encontrar la página que está solicitando.
+          Por el momento se puede dirigir a la página de inicio: <%=link_to "volver al dashboard (inicio)", home_index_path %>.
+        </p>
+        <div class="col-md-12">
+          <div class="alert alert-warning alert-dismissible">
+            <h4><i class="icon fa fa-ban"></i> Alerta!</h4>
+            <%=@mensaje %>
+          </div>
+        </div>
+      </div>
+      <!-- /.error-content -->
+    </div>
+    <!-- /.error-page -->
+  </section>
+<%end %>

@@ -1,0 +1,7 @@
+<tr id="<%=role.id %>">
+  <td class="text-center"><%=role.id %></td>
+  <td class="text-center"><%=role.descrip_rol.titleize %></td>
+  <td class="text-center">
+    <%=link_to 'Editar', edit_role_path(role.id), remote: true,class: 'btn btn-info btn-sm' %>
+  </td>
+</tr>

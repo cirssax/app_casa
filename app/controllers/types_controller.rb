@@ -24,7 +24,7 @@ class TypesController < ApplicationController
       @tipo = "warning"
     else
       #Verificacion de la repeticion del nombre
-      if !RepeticionMarcaCreate(@types, @type.descrip_tipo)
+      if !RepeticionMarcaCreate(@types, params[:type][:descrip_tipo])
         @titulo = "Creacion de tipo"
         @mensaje = "Ya existe una tipo con ese nombre"
         @tipo = "warning"

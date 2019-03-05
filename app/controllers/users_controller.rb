@@ -29,12 +29,12 @@ class UsersController < ApplicationController
         @tipo = "warning"
       else
         #Verificacion de la repeticion del nombre
-        if !RepeticionUsuarioCreate(@users, @user.nombre_usuario, @user.apellidos_usuario)
+        if !RepeticionUsuarioCreate(@users, params[:user][:nombre_usuario], params[:user][:apellidos_usuario])
           @titulo = "Creacion de usuario"
           @mensaje = "Ya existe un usuario con ese nombre y apellido"
           @tipo = "warning"
         else
-          if !RepeticionEmailCreate(@users, @user.email)
+          if !RepeticionEmailCreate(@users, params[:user][:email])
             @titulo = "Creacion de usuario"
             @mensaje = "Ya existe un usuario con correo electrónico registrado"
             @tipo = "warning"
