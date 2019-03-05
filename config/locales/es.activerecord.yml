@@ -1,0 +1,28 @@
+es:
+  activerecord:
+    attributes:
+      product:
+        tipo: 'Tipo de Producto:'
+        stock: 'Stock:'
+        nombre_producto: 'Nombre del Producto:'
+        marca: 'Marca de Producto: '
+        ubicacion: 'Ubicacion del Producto: '
+      role:
+        descrip_rol: 'Descripcion del Rol: '
+      satate:
+        descrip_estado: 'Descripcion del Estado: '
+      type:
+        descrip_tipo: 'Descripción del tipo de producto: '
+      user:
+        email: 'Correo electronico: '
+        rol: 'Rol :'
+        estado: 'Estado: '
+        nombre_usuario: 'Nombre: '
+        apellidos_usuario: 'Apellidos: '
+        login: 'Login: '
+      brand:
+        descrip_marca: 'Descripcion de Marca: '
+      request:
+        fecha: 'Fecha de solicitud: '
+      situation:
+        descrip_estado_producto: 'Descripcion de estado de producto: '

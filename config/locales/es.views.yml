@@ -1,0 +1,33 @@
+es:
+  users:
+    index:
+      new_link: 'Crear usuario'
+      edit_link: 'Actualizar usuario'
+  types:
+    index:
+      new_link: 'Crear tipo'
+      edit_link: 'Actualizar tipo'
+  brands:
+    index:
+      new_link: 'Crear marca'
+      edit_link: 'Actualizar marca'
+  roles:
+    index:
+      new_link: 'Crear rol'
+      edit_link: 'Actualizar rol'
+  states:
+    index:
+      new_link: 'Crear estado'
+      edit_link: 'Actualizar estado'
+  products:
+    index:
+      new_link: 'Crear producto'
+      edit_link: 'Actualizar producto'
+  requests:
+    index:
+      new_link: 'Nuevo consumo'
+      edit_link: 'Actualizar consumo'
+  situations:
+    index:
+      new_link: 'Nueva situacion de consumo'
+      edit_link: 'Actualizar situacion de consumo'
