@@ -22,12 +22,14 @@ class TypesController < ApplicationController
       @titulo = "Creacion de tipo"
       @mensaje = "Debe llenar todos los campos"
       @tipo = "warning"
+      @icono = "icon fa fa-warning"
     else
       #Verificacion de la repeticion del nombre
       if !RepeticionMarcaCreate(@types, params[:type][:descrip_tipo])
         @titulo = "Creacion de tipo"
         @mensaje = "Ya existe una tipo con ese nombre"
         @tipo = "warning"
+        @icono = "icon fa fa-warning"
       else
         respond_to do |format|
           if @type.save
@@ -37,6 +39,7 @@ class TypesController < ApplicationController
             @titulo = "Creacion de tipo"
             @mensaje = "Se a creado el tipo correctamente"
             @tipo = "success"
+            @icono = "icon fa fa-check"
           else
             format.js
             format.html {render :new}
@@ -44,6 +47,7 @@ class TypesController < ApplicationController
             @titulo = "Creacion de tipo"
             @mensaje = "Ha ocurrido un error"
             @tipo = "danger"
+            @icono = "icon fa fa-ban"
           end
         end
       end
@@ -69,28 +73,32 @@ class TypesController < ApplicationController
       @titulo_edit = "Edicion de tipo"
       @mensaje_edit = "Debe llenar los campos"
       @tipo_edit = "warning"
+      @icono_edit = "icon fa fa-warning"
     else
       #Varificacion de la existencia del nombre del producto
       if !RepetecionNombreUpdate(@types, params[:type][:descrip_tipo], params[:id])
         @titulo_edit = "Edicion de tipo"
         @mensaje_edit = "Ya existe un tipo bajo ese nombre"
         @tipo_edit = "warning"
+        @icono_edit = "icon fa fa-warning"
       else
         respond_to do |format|
           if @type.update(types_params)
             format.html {redirect_to @type, notice: "Tipo actualizado correctamente"}
             format.json {render :show, status: :created, location: @type}
-            format.js {@titulo_edit = "Edicion de marca"
+            format.js
+            @titulo_edit = "Edicion de marca"
             @mensaje_edit = "Se actualizado la marca correctamente"
-            @tipo_edit = "success"}
-
+            @tipo_edit = "success"
+            @icono_edit = "icon fa fa-check"
           else
             format.html {render :new}
             format.json {render json: @type.errors, status: :unprocessable_entity}
-            format.js{
+            format.js
             @titulo_edit = "Edicion de marca"
             @mensaje_edit = "Ha ocurrido un error"
-            @tipo_edit = "danger"}
+            @tipo_edit = "danger"
+            @icono_edit = "icon fa fa-ban"
           end
         end
       end
@@ -105,6 +113,7 @@ class TypesController < ApplicationController
       @titulo_del = "Borrar marca"
       @mensaje_del = "El tipo no se puede borrar ya que hay productos asociadas a éste"
       @tipo_del = "warning"
+      @icono_del = "icon fa fa-warning"
     else
       @type.destroy
       respond_to do |format|
@@ -114,6 +123,7 @@ class TypesController < ApplicationController
         @titulo_del = "Borrar marca"
         @mensaje_del = "Marca borrada con exito"
         @tipo_del = "success"
+        @icono_del = "icon fa fa-check"
       end
     end
   end

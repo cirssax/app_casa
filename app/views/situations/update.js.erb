@@ -1,11 +1,13 @@
-<% if @brand.errors.empty? %>
+<% if @situation.errors.empty? %>
 
   <% if @tipo_edit == "success" %>
-    $('table tbody tr#<%= @brand.id %>').replaceWith(' <%= j render "row", brand: @brand %>');
+
+    $('table tbody tr#<%= @situation.id %>').replaceWith(' <%= j render "row", situation: @situation %>');
+
   <% end %>
 
-  $("#modal-brand").modal('hide');
-  $(".marca_nombre").val("");
+  $("#modal-situation").modal('hide');
+
   var html = "<div id='mensaje' class='mensaje'> \n" +
       "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
       "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
@@ -29,5 +31,5 @@
   });
 
 <% else %>
-  alert('<% @brand.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+  alert('<% @situation.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
 <% end %>

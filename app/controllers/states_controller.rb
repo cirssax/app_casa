@@ -22,12 +22,14 @@ class StatesController < ApplicationController
       @titulo = "Creacion de estado"
       @mensaje = "Debe llenar todos los campos"
       @tipo = "warning"
+      @icono = "icon fa fa-warning"
     else
       #Verificacion de la repeticion del nombre
       if !RepeticionEstadoCreate(@states, params[:state][:descrip_estado])
         @titulo = "Creacion de estado"
         @mensaje = "Ya existe un estado de usuario con ese nombre"
         @tipo = "warning"
+        @icono = "icon fa fa-warning"
       else
         respond_to do |format|
           if @state.save
@@ -37,6 +39,7 @@ class StatesController < ApplicationController
             @titulo = "Creacion de estado"
             @mensaje = "Se a creado el estado de usuario correctamente"
             @tipo = "success"
+            @icono = "icon fa fa-check"
           else
             format.js
             format.html {render :new}
@@ -44,6 +47,7 @@ class StatesController < ApplicationController
             @titulo = "Creacion de estado"
             @mensaje = "Ha ocurrido un error"
             @tipo = "danger"
+            @icono = "icon fa fa-ban"
           end
         end
       end
@@ -69,28 +73,32 @@ class StatesController < ApplicationController
       @titulo_edit = "Edicion de estado"
       @mensaje_edit = "Debe llenar los campos"
       @tipo_edit = "warning"
+      @icono_edit = "icon fa fa-warning"
     else
       #Varificacion de la existencia del nombre del producto
       if !RepetecionNombreUpdate(@states, params[:state][:descrip_estado], params[:id])
         @titulo_edit = "Edicion de estado"
         @mensaje_edit = "Ya existe estado de usuario bajo ese nombre"
         @tipo_edit = "warning"
+        @icono_edit = "icon fa fa-warning"
       else
         respond_to do |format|
           if @state.update(states_params)
             format.html {redirect_to @state, notice: "Estado actualizado correctamente"}
             format.json {render :show, status: :created, location: @state}
-            format.js {@titulo_edit = "Edicion de estado"
+            format.js
+            @titulo_edit = "Edicion de estado"
             @mensaje_edit = "Se actualizado el estado de usuario correctamente"
-            @tipo_edit = "success"}
-
+            @tipo_edit = "success"
+            @icono_edit = "icon fa fa-check"
           else
             format.html {render :new}
             format.json {render json: @state.errors, status: :unprocessable_entity}
-            format.js{
-              @titulo_edit = "Edicion de estado"
-              @mensaje_edit = "Ha ocurrido un error"
-              @tipo_edit = "danger"}
+            format.js
+            @titulo_edit = "Edicion de estado"
+            @mensaje_edit = "Ha ocurrido un error"
+            @tipo_edit = "danger"
+            @icono_edit = "icon fa fa-ban"
           end
         end
       end
@@ -105,15 +113,17 @@ class StatesController < ApplicationController
       @titulo_del = "Borrar estado"
       @mensaje_del = "El estado de usuario no se puede borrar ya que hay usuarios asociados"
       @tipo_del = "warning"
+      @icono_del = "icon fa fa-warning"
     else
-      @type.destroy
+      @state.destroy
       respond_to do |format|
-        format.html{redirect_to type_path, notice: "Estado borrado con exito"}
+        format.html{redirect_to states_path, notice: "Estado borrado con exito"}
         format.json{head :no_content}
         format.js
         @titulo_del = "Borrar estado"
         @mensaje_del = "Estado de usuario borrado con exito"
         @tipo_del = "success"
+        @icono_del = "icon fa fa-check"
       end
     end
   end

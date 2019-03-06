@@ -37,17 +37,20 @@ class ProductsController < ApplicationController
       @titulo = "Creacion de producto"
       @mensaje = "Debe llenar todos los campos"
       @tipo = "warning"
+      @icono = "icon fa fa-warning"
     else
       if @product.stock.to_i < 0
         @titulo = "Creacion de producto"
         @mensaje = "La cantidad del producto debe ser mayor o igual a cero"
         @tipo = "warning"
+        @icono = "icon fa fa-warning"
       else
         #verficacion de la repetitividad de productos
         if !RepeticionNombre(@productos, @product.nombre_producto.upcase)#Retorna true si se encuentra
           @titulo = "Creacion de producto"
           @mensaje = "Ya existe un producto con ese nombre"
           @tipo = "warning"
+          @icono = "icon fa fa-warning"
         else
           respond_to do |format|
             if @product.save
@@ -57,6 +60,7 @@ class ProductsController < ApplicationController
               @titulo = "Creacion de producto"
               @mensaje = "Producto se ha creado correctamete"
               @tipo = "success"
+              @icono = "icon fa fa-check"
             else
               format.html {render :new}
               format.json {render json: @product.errors, status: :unprocessable_entity}
@@ -64,6 +68,7 @@ class ProductsController < ApplicationController
               @titulo = "Creacion de producto"
               @mensaje = "Ha ocurrido un error"
               @tipo = "danger"
+              @icono = "icon fa fa-ban"
             end
           end
         end
@@ -80,12 +85,14 @@ class ProductsController < ApplicationController
       @titulo_edit = "Edicion de producto"
       @mensaje_edit = "Debe llenar todos los campos"
       @tipo_edit = "warning"
+      @icono_edit = "icon fa fa-warning"
     else
       #Varificacion de la existencia del nombre del producto
       if !RepetecionNombreUpdate(@productos, params[:product][:nombre_producto], params[:id])
         @titulo_edit = "Edicion de producto"
         @mensaje_edit = "Ya existe un producto con ese nombre"
         @tipo_edit = "warning"
+        @icono_edit = "icon fa fa-warning"
       else
         respond_to do |format|
           if @product.update(product_params)
@@ -95,6 +102,7 @@ class ProductsController < ApplicationController
             @titulo_edit = "Edicion de producto"
             @mensaje_edit = "Producto se ha actualizado correctamete"
             @tipo_edit = "success"
+            @icono_edit = "icon fa fa-check"
           else
             format.html {render :new}
             format.json {render json: @product.errors, status: :unprocessable_entity}
@@ -102,6 +110,7 @@ class ProductsController < ApplicationController
             @titulo_edit = "Edicion de producto"
             @mensaje_edit = "Ha ocurrido un error"
             @tipo_edit = "danger"
+            @icono_edit = "icon fa fa-ban"
           end
         end
       end
@@ -115,11 +124,13 @@ class ProductsController < ApplicationController
       @titulo_del = "Borrar producto"
       @mensaje_del = "El producto seleccionado tiene una cantidad mayor a cero"
       @tipo_del = "warning"
+      @icono_del = "icon fa fa-warning"
     else
       if !ValidProdDel(params[:id])
         @titulo_del = "Borrar producto"
         @mensaje_del = "El producto seleccionado se encuentra en consumo"
         @tipo_del = "warning"
+        @icono_del = "icon fa fa-warning"
       else
         @product.destroy
         respond_to do |format|
@@ -129,6 +140,7 @@ class ProductsController < ApplicationController
           @titulo_del = "Borrar producto"
           @mensaje_del = "Producto se ha borrado correctamente"
           @tipo_del = "success"
+          @icono_del = "icon fa fa-check"
         end
       end
     end

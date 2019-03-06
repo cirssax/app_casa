@@ -44,7 +44,7 @@
             <tr>
               <td>Estado de consumo de productos</td>
               <td><span class="badge bg-gray-active"><%=@situations.length %></span></td>
-              <td><button class="btn btn-primary" type="button">Tabla situaciones</button></td>
+              <td><%=link_to "Tabla de situaciones", situations_path, class: "btn btn-primary"%></td>
             </tr>
             </tbody>
             <tfoot>

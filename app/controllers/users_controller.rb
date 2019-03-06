@@ -21,28 +21,33 @@ class UsersController < ApplicationController
       @titulo = "Creacion de usuario"
       @mensaje = "Debe llenar todos los campos"
       @tipo = "warning"
+      @icono = "icon fa fa-warning"
     else
       #Verificacion de la password
       if params[:user][:password] != params[:user][:password_confirmation]
         @titulo = "Creacion de usuario"
         @mensaje = "Las contraseñas son distintas"
         @tipo = "warning"
+        @icono = "icon fa fa-warning"
       else
         #Verificacion de la repeticion del nombre
         if !RepeticionUsuarioCreate(@users, params[:user][:nombre_usuario], params[:user][:apellidos_usuario])
           @titulo = "Creacion de usuario"
           @mensaje = "Ya existe un usuario con ese nombre y apellido"
           @tipo = "warning"
+          @icono = "icon fa fa-warning"
         else
           if !RepeticionEmailCreate(@users, params[:user][:email])
             @titulo = "Creacion de usuario"
             @mensaje = "Ya existe un usuario con correo electrónico registrado"
             @tipo = "warning"
+            @icono = "icon fa fa-warning"
           else
             if !RepeticionLoginCrete(@users, params[:user][:login])
               @titulo = "Creacion de usuario"
               @mensaje = "Ya existe un usuario con ese login"
               @tipo = "warning"
+              @icono = "icon fa fa-warning"
             else
               respond_to do |format|
                 if @user.save
@@ -52,6 +57,7 @@ class UsersController < ApplicationController
                   @titulo = "Creacion de usuario"
                   @mensaje = "Se a creado el usuario correctamente"
                   @tipo = "success"
+                  @icono = "icon fa fa-check"
                 else
                   format.js
                   format.html {render :new}
@@ -59,6 +65,7 @@ class UsersController < ApplicationController
                   @titulo = "Creacion de usuario"
                   @mensaje = "Ha ocurrido un error"
                   @tipo = "danger"
+                  @icono = "icon fa fa-ban"
                 end
               end
             end
@@ -85,6 +92,7 @@ class UsersController < ApplicationController
         @titulo_estado = "Cambio de estado"
         @mensaje_estado = "Usuario desactivado"
         @tipo_estado = "success"
+        @icono_estado = "icon fa fa-check"
         @user.update_attribute :estado, "2"
       else
         #Caso en que se tiene que activar el usuario
@@ -95,6 +103,7 @@ class UsersController < ApplicationController
           @titulo_estado = "Cambio de estado"
           @mensaje_estado = "Usuario activado"
           @tipo_estado = "success"
+          @icono_estado = "icon fa fa-check"
           @user.update_attribute :estado, "1"
         else
           format.html {render :new}
@@ -103,6 +112,7 @@ class UsersController < ApplicationController
           @titulo_estado = "Cambio de estado"
           @mensaje_estado = "Ha ocurrido un error"
           @tipo_estado = "danger"
+          @icono_estado = "icon fa fa-ban"
         end
       end
     end
@@ -122,28 +132,33 @@ class UsersController < ApplicationController
       @titulo_edit = "Edicion de usuario"
       @mensaje_edit = "Debe llenar todos los campos"
       @tipo_edit = "warning"
+      @icono_edit = "icon fa fa-warning"
     else
       #En el caso de que halla cambio de pass, verificacion que esten bien escritas ambas
       if params[:user][:password] != params[:user][:password_confirmation]
         @titulo_edit = "Edicion de usuario"
         @mensaje_edit = "La contraseña nueva es diferente de la que se confirma"
         @tipo_edit = "warning"
+        @icono_edit = "icon fa fa-warning"
       else
         #Varificacion de la existencia de un usuario con ese nombre
         if !RepetecionUsuarioUpdate(@users, params[:user][:nombre_usuario], params[:user][:apellidos_usuario] ,params[:id])
           @titulo_edit = "Edicion de usuario"
           @mensaje_edit = "Ya existe un usuario con ese nombre y/o apellidos"
           @tipo_edit = "warning"
+          @icono_edit = "icon fa fa-warning"
         else
           if !RepetecionEmailUpdate(@users, params[:user][:email], params[:id])
             @titulo_edit = "Edicion de usuario"
             @mensaje_edit = "Ya existe un usuario con ese correo electrónico"
             @tipo_edit = "warning"
+            @icono_edit = "icon fa fa-warning"
           else
             if !RepeticionLoginUpdate(@users, params[:user][:login], params[:id])
               @titulo_edit = "Edicion de usuario"
               @mensaje_edit = "Ya existe un usuario asignado a ese login"
               @tipo_edit = "warning"
+              @icono_edit = "icon fa fa-warning"
             else
               respond_to do |format|
                 if @user.update(users_params)
@@ -153,6 +168,7 @@ class UsersController < ApplicationController
                   @titulo_edit = "Edicion de usuario"
                   @mensaje_edit = "Se actualizado el usuario correctamente"
                   @tipo_edit = "success"
+                  @icono_edit = "icon fa fa-check"
                 else
                   format.html {render :new}
                   format.json {render json: @user.errors, status: :unprocessable_entity}
@@ -160,6 +176,7 @@ class UsersController < ApplicationController
                   @titulo_edit = "Edicion de usuario"
                   @mensaje_edit = "Ha ocurrido un error"
                   @tipo_edit = "danger"
+                  @icono_edit = "icon fa fa-ban"
                 end
               end
             end

@@ -23,12 +23,14 @@ class BrandsController < ApplicationController
       @titulo = "Creacion de marca"
       @mensaje = "Debe llenar todos los campos"
       @tipo = "warning"
+      @icono = "icon fa fa-warning"
     else
       #Verificacion de la repeticion del nombre
       if !RepeticionMarcaCreate(@brands, params[:brand][:descrip_marca])
         @titulo = "Creacion de marca"
         @mensaje = "Ya existe una marca con ese nombre"
         @tipo = "warning"
+        @icono = "icon fa fa-warning"
       else
         respond_to do |format|
           if @brand.save
@@ -38,6 +40,7 @@ class BrandsController < ApplicationController
             @titulo = "Creacion de marca"
             @mensaje = "Se a creado la marca correctamente"
             @tipo = "success"
+            @icono = "icon fa fa-check"
           else
             format.js
             format.html {render :new}
@@ -45,6 +48,7 @@ class BrandsController < ApplicationController
             @titulo = "Creacion de marca"
             @mensaje = "Ha ocurrido un error"
             @tipo = "danger"
+            @icono = "icon fa fa-ban"
           end
         end
       end
@@ -71,12 +75,14 @@ class BrandsController < ApplicationController
       @titulo_edit = "Edicion de marca"
       @mensaje_edit = "Debe llenar todos los campos"
       @tipo_edit = "warning"
+      @icono_edit = "icon fa fa-warning"
     else
       #Varificacion de la existencia del nombre del producto
       if !RepetecionNombreUpdate(@brands, params[:brand][:descrip_marca], params[:id])
         @titulo_edit = "Edicion de marca"
         @mensaje_edit = "Ya existe una marca bajo ese nombre"
         @tipo_edit = "warning"
+        @icono_edit = "icon fa fa-warning"
       else
         respond_to do |format|
           if @brand.update(brands_params)
@@ -86,6 +92,7 @@ class BrandsController < ApplicationController
             @titulo_edit = "Edicion de marca"
             @mensaje_edit = "Se actualizado la marca correctamente"
             @tipo_edit = "success"
+            @icono_edit = "icon fa fa-check"
           else
             format.html {render :new}
             format.json {render json: @brand.errors, status: :unprocessable_entity}
@@ -93,6 +100,7 @@ class BrandsController < ApplicationController
             @titulo_edit = "Edicion de marca"
             @mensaje_edit = "Ha ocurrido un error"
             @tipo_edit = "danger"
+            @icono_edit = "icon fa fa-ban"
           end
         end
       end
@@ -107,6 +115,7 @@ class BrandsController < ApplicationController
       @titulo_del = "Borrar marca"
       @mensaje_del = "La marca no se puede borrar ya que hay productos asociadas a ésta"
       @tipo_del = "warning"
+      @icono_del = "icon fa fa-warning"
     else
       @brand.destroy
       respond_to do |format|
@@ -116,6 +125,7 @@ class BrandsController < ApplicationController
         @titulo_del = "Borrar marca"
         @mensaje_del = "Marca borrada con exito"
         @tipo_del = "success"
+        @icono_del = "icon fa fa-check"
       end
     end
   end

@@ -1,31 +1,38 @@
 <% if @product.errors.empty? %>
 
   <% if @tipo == "success" %>
-    $("#modal-product").modal('hide');
-    //$("#modal-product :input").val('');
-    $(".product_nombre").val("");
-    $(".product_stock").val("");
-    $(".product_marca").html("");
-    $(".product_tipo").html("");
-    $(".product_ubicacion").val("");
     $("#container_products").prepend('<%= j render @product %>');
-    toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
-        positionClass: "toast-top-right",
-        closeButton: "true",
-        progressBar: "true",
-        preventDuplicates: "true"
-    });
     $("#product_<%= @product.id %>").hide().fadeIn(1000);
-
-  <% else %>
-
-    toastr["<%= @tipo %>"]("<%= @mensaje %>", "<%= @titulo %>", {
-        positionClass: "toast-top-right",
-        closeButton: "true",
-        progressBar: "true",
-        preventDuplicates: "true"
-    });
   <% end %>
+
+  $("#modal-product").modal('hide');
+  //$("#modal-product :input").val('');
+  $(".product_nombre").val("");
+  $(".product_stock").val("");
+  $(".product_marca").html("");
+  $(".product_tipo").html("");
+  $(".product_ubicacion").val("");
+  var html = "<div id='mensaje' class='mensaje'> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
+      "     <div class='box-body'>  "+
+      "      <div class='alert alert-<%=@tipo %> alert-dismissible'> \n" +
+      "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
+      "        <h5><i class='<%=@icono %>'></i> <b> <%=@titulo %> </b></h5> \n" +
+      "        <%=@mensaje %> \n" +
+      "      </div>\n" +
+      "    </div> </div> </div>";
+
+  html = $.parseHTML( html);
+
+  $("#alerta").append(html);
+
+  $("#alerta").hide().fadeIn(1000);
+
+  $(".mensaje").fadeOut(10000, function(){
+      $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+  });
 
 <% else %>
   alert('<% @product.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');

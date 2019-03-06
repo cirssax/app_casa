@@ -22,12 +22,14 @@ class RolesController < ApplicationController
       @titulo = "Creacion de rol"
       @mensaje = "Debe llenar todos los campos"
       @tipo = "warning"
+      @icono = "icon fa fa-warning"
     else
       #Verificacion de la repeticion del nombre
       if !RepeticionRolCreate(@roles, params[:role][:descrip_rol])
         @titulo = "Creacion de rol"
         @mensaje = "Ya existe un rol de usuario con ese nombre"
         @tipo = "warning"
+        @icono = "icon fa fa-warning"
       else
         respond_to do |format|
           if @role.save
@@ -37,6 +39,7 @@ class RolesController < ApplicationController
             @titulo = "Creacion de rol"
             @mensaje = "Se a creado el rol de usuario correctamente"
             @tipo = "success"
+            @icono = "icon fa fa-check"
           else
             format.js
             format.html {render :new}
@@ -44,6 +47,7 @@ class RolesController < ApplicationController
             @titulo = "Creacion de rol"
             @mensaje = "Ha ocurrido un error"
             @tipo = "danger"
+            @icono = "icon fa fa-ban"
           end
         end
       end
@@ -69,28 +73,32 @@ class RolesController < ApplicationController
       @titulo_edit = "Edicion de rol"
       @mensaje_edit = "Debe llenar los campos"
       @tipo_edit = "warning"
+      @icono_edit = "icon fa fa-warning"
     else
       #Varificacion de la existencia del nombre del producto
       if !RepetecionNombreUpdate(@roles, params[:role][:descrip_rol], params[:id])
         @titulo_edit = "Edicion de rol"
         @mensaje_edit = "Ya existe rol de usuario bajo ese nombre"
         @tipo_edit = "warning"
+        @icono_edit = "icon fa fa-warning"
       else
         respond_to do |format|
           if @role.update(roles_params)
             format.html {redirect_to @role, notice: "Rol actualizado correctamente"}
             format.json {render :show, status: :created, location: @role}
-            format.js {@titulo_edit = "Edicion de rol"
+            format.js {}
+            @titulo_edit = "Edicion de rol"
             @mensaje_edit = "Se actualizado el rol de usuario correctamente"
-            @tipo_edit = "success"}
-
+            @tipo_edit = "success"
+            @icono_edit = "icon fa fa-check"
           else
             format.html {render :new}
             format.json {render json: @role.errors, status: :unprocessable_entity}
-            format.js{
-              @titulo_edit = "Edicion de rol"
-              @mensaje_edit = "Ha ocurrido un error"
-              @tipo_edit = "danger"}
+            format.js{}
+            @titulo_edit = "Edicion de rol"
+            @mensaje_edit = "Ha ocurrido un error"
+            @tipo_edit = "danger"
+            @icono_edit = "icon fa fa-ban"
           end
         end
       end
@@ -105,6 +113,7 @@ class RolesController < ApplicationController
       @titulo_del = "Borrar rol"
       @mensaje_del = "El rol de usuario no se puede borrar ya que hay usuarios asociados"
       @tipo_del = "warning"
+      @icono_del = "icon fa fa-warning"
     else
       @type.destroy
       respond_to do |format|
@@ -114,6 +123,7 @@ class RolesController < ApplicationController
         @titulo_del = "Borrar rol"
         @mensaje_del = "Rol de usuario borrado con exito"
         @tipo_del = "success"
+        @icono_del = "icon fa fa-check"
       end
     end
   end

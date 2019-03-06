@@ -1,0 +1,7 @@
+<tr id="<%=situation.id %>">
+  <td class="text-center"><%=situation.id %></td>
+  <td class="text-center"><%=situation.descrip_estado_producto.titleize %></td>
+  <td class="text-center">
+    <%=link_to 'Editar', edit_situation_path(situation.id), remote: true,class: 'btn btn-info btn-sm' %>
+  </td>
+</tr>
