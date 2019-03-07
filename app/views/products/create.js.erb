@@ -30,6 +30,11 @@
 
   $("#alerta").hide().fadeIn(1000);
 
+
+  $("html,body").animate({
+      scrollTop: $("#alerta").offset().top
+  }, 500);
+
   $(".mensaje").fadeOut(10000, function(){
       $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
   });

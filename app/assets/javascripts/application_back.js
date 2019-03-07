@@ -4,7 +4,6 @@
 //= require back/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min
 //= require back/app
 //= require back/plugins/jQueryUI/jquery-ui.min.js
-//= require back/plugins/toastr/toastr.js
 
 $(document).ready(function() {
 

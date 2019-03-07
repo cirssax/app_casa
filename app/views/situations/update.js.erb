@@ -30,6 +30,10 @@
       $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
   });
 
+  $("html,body").animate({
+     scrollTop: $("#alerta").offset().top
+  }, 1000);
+
 <% else %>
   alert('<% @situation.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
 <% end %>
