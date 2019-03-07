@@ -325,12 +325,12 @@
       <workItem from="1551752732189" duration="2689000" />
       <workItem from="1551832338459" duration="7142000" />
       <workItem from="1551896433644" duration="5210000" />
-      <workItem from="1551925028899" duration="835000" />
+      <workItem from="1551925028899" duration="1379000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200476000" />
+    <option name="totallyTimeSpent" value="201020000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -344,7 +344,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1440" height="782" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19799139" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19799139" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -357,7 +357,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49713057" visible="true" weight="0.24200913" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49713057" visible="true" weight="0.24200913" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5028694" side_tool="true" weight="0.24200913" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32901832" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
