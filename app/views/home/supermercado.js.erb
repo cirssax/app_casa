@@ -1,0 +1,6 @@
+<%if @ListaOferta.length > 0 %>
+  $("#ofertas tr").remove();
+  <%@ListaOferta.each do |oferta| %>
+    $('#ofertas').children('tbody').append(' <%= j render "row", ofert: oferta %>');
+  <%end %>
+<%end %>

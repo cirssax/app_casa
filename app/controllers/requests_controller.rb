@@ -1,7 +1,12 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
-  def index
 
+
+  # GET /requests
+  # GET /requests.json
+  def index
+    @requests = Request.all
+    @products = Product.all
   end
 
   def create

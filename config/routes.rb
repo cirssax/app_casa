@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :brands
   resources :home
 
-  get '/home/show_ofertas', to: 'home#show_ofertas', as: 'show_ofertas'
+  get '/home:id/supermercado', to: 'home#supermercado', as: 'select_supermercado'
 
   resources :requests
   resources :roles

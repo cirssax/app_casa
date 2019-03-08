@@ -1,0 +1,7 @@
+<tr id="<%=product.id %>">
+  <td class="text-center"><%=product.nombre_producto.titleize %></td>
+  <td class="text-center"><%=product.stock %></td>
+  <td class="text-center">
+    <%=link_to 'Consumir', edit_request_path(product.id), remote: true,class: 'btn btn-success btn-sm' %>
+  </td>
+</tr>

@@ -1,1 +1,48 @@
-<h2>Productos en consumo</h2>
+<div class="row" id="alerta" hidden="hidden">
+
+</div>
+
+<div class="box box-info">
+  <div class="box-header">
+    <span>Productos en consumo</span>
+    <button class="btn btn-success pull-right" id="Bajar" type="button"><span class="fa fa-plus-circle"></span> Seleccionar</button>
+  </div>
+  <div class="box-body">
+    <%=render @requests %>
+  </div>
+</div>
+
+
+<div class="box box-success" id="punto">
+  <div class="box-header">
+    <h4>Productos disponibles</h4>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body table-responsive table table-bordered table-hover">
+    <table class="table table-hover" id="tabla">
+      <thead>
+      <tr>
+        <th style="width: 10px" class="text-center">Producto</th>
+        <th style="width: 10px" class="text-center">Cantidad</th>
+        <th style="width: 10px" class="text-center">Consumir</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%@products.each do |product| %>
+        <%= render "row", product: product %>
+      <% end %>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th style="width: 10px" class="text-center">Producto</th>
+        <th style="width: 10px" class="text-center">Cantidad</th>
+        <th style="width: 10px" class="text-center">Consumir</th>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+    <button id="Subir" type="button" class="btn btn-default pull-right"><span class="fa fa-arrow-up"></span> Volver Arriba</button>
+  </div>
+</div>
