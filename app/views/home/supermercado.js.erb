@@ -3,4 +3,6 @@
   <%@ListaOferta.each do |oferta| %>
     $('#ofertas').children('tbody').append(' <%= j render "row", ofert: oferta %>');
   <%end %>
+<%else%>
+  $("#ofertas tr").remove();
 <%end %>
