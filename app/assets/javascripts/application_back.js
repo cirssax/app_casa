@@ -22,11 +22,7 @@ $(document).ready(function() {
         }, 1000);
     });
 
-    $(".btn.btn-success.catalogos").on('click', function () {
-        $('html, body').animate({
-            scrollTop: $("#marca").offset().top
-        }, 1000);
-    });
+
 
   $("#tabla").DataTable({
       'paging'      : true,

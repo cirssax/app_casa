@@ -1,8 +1,64 @@
 <%if @ListaOferta.length > 0 %>
-  $("#ofertas tr").remove();
+  $("#ofertas tbody tr").remove();
+
   <%@ListaOferta.each do |oferta| %>
     $('#ofertas').children('tbody').append(' <%= j render "row", ofert: oferta %>');
   <%end %>
+
+  $("html,body").animate({
+      scrollTop: $("#marca").offset().top
+  }, 1000);
+
+  var html = "<div id='mensaje' class='mensaje'> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
+      "     <div class='box-body'>  "+
+      "      <div class='alert alert-success alert-dismissible'> \n" +
+      "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
+      "        <h5><i class='icon fa fa-check'></i> <b> Ofertas </b></h5> \n" +
+      "        Catálogos disponibles" +
+      "      </div>\n" +
+      "    </div> </div> </div>";
+
+  html = $.parseHTML( html);
+
+  $("#alerta").append(html);
+
+  $("#alerta").hide().fadeIn(1000);
+
+  $(".mensaje").fadeOut(10000, function(){
+      $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+  });
+
 <%else%>
-  $("#ofertas tr").remove();
+
+  $("html,body").animate({
+      scrollTop: $("#marca").offset().top
+  }, 1000);
+
+  var html = "<div id='mensaje' class='mensaje'> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
+      "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
+      "     <div class='box-body'>  "+
+      "      <div class='alert alert-danger alert-dismissible'> \n" +
+      "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
+      "        <h5><i class='icon fa fa-ban'></i> <b> Ofertas </b></h5> \n" +
+      "        No hay catálogos disponibles \n" +
+      "      </div>\n" +
+      "    </div> </div> </div>";
+
+  html = $.parseHTML( html);
+
+  $("#alerta").append(html);
+
+  $("#alerta").hide().fadeIn(1000);
+
+  $("#ofertas tbody tr").remove();
+
+  $(".mensaje").fadeOut(10000, function(){
+      $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+  });
+
 <%end %>
