@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   #Validaciones del stock
   validates :marca, presence: {messege: "Debe seleccionar una marca"}
   #Validaciones del precio
-  validates :stock, presence: {message: "Debe asignar un stock"}, numericality: {only_integer: true, greater_than_or_equal_to: 0}, length: {in: 1..10, :message =>"Largo inadecuado"}
+  validates :stock, presence: {message: "Debe asignar un stock"}, numericality: {only_integer: true, greater_than_or_equal_to: 0}, length: {in: 1..50, :message =>"Largo inadecuado"}
   #Validaciones del nombre
   validates :nombre_producto, length: { in: 2..50 , :message => "Largo inadecuado de producto"},  format: { with: VALID_NAME_REGEX , :message => "Formato invalido"},  presence: { message: "Debe llenar el campo" }
   #Validaciones de la ubicacion

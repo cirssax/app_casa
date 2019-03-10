@@ -1,0 +1,38 @@
+<% if @request.errors.empty? %>
+
+  <% if @tipo == "success" %>
+    $("#container_requests").prepend('<%= j render @request %>');
+    $("#request_<%= @request.id %>").hide().fadeIn(1000);
+  <% end %>
+
+    $("#modal-request").modal('hide');
+
+    var html = "<div id='mensaje' class='mensaje'> \n" +
+        "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
+        "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
+        "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
+        "     <div class='box-body'>  "+
+        "      <div class='alert alert-<%=@tipo %> alert-dismissible'> \n" +
+        "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
+        "        <h5><i class='<%=@icono %>'></i> <b> <%=@titulo %> </b></h5> \n" +
+        "        <%=@mensaje %> \n" +
+        "      </div>\n" +
+        "    </div> </div> </div>";
+
+    html = $.parseHTML( html);
+
+    $("#alerta").append(html);
+
+    $("#alerta").hide().fadeIn(1000);
+
+    $(".mensaje").fadeOut(10000, function(){
+        $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+    });
+
+    $("html,body").animate({
+        scrollTop: $("#alerta").offset().top
+    }, 1000);
+
+<% else %>
+  alert('<% @situation.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
+<% end %>
