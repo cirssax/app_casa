@@ -18,9 +18,12 @@ Rails.application.routes.draw do
   resources :brands
   resources :home
 
-  get '/home:id/supermercado', to: 'home#supermercado', as: 'select_supermercado'
+  get '/home/:id/supermercado', to: 'home#supermercado', as: 'select_supermercado'
 
   resources :requests
+
+  get '/request/:id/state', to: 'requests#change_state', as: 'change_state_re'
+
   resources :roles
   resources :situations
   resources :states

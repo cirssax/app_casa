@@ -1,5 +1,5 @@
 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="request_<%= request.id %>">
-  <div class="box box-info box-solid">
+  <div class="box <%if request.estado.to_i == 1 %> box-info <%else %> box-danger <%end %> box-solid">
     <div class="box-header with-border">
       <h3 class="box-title"><%=Product.find(request.producto).nombre_producto.titleize %></h3>
       <div class="box-tools pull-right">
@@ -10,10 +10,17 @@
     <div class="box-body">
       <ul class="nav nav-stacked">
         <li><a>Cantidad <span class="pull-right badge bg-green-gradient"><%= request.cantidad %></span></a></li>
-        <li><a>Solicitante <span class="pull-right badge bg-orange"><%= User.find(request.usuario).nombre_usuario.titleize %></span></a></li>
-        <li><a>Fecha <span class="pull-right badge bg-aqua-active"><%= request.fecha.strftime('%d-%m-%Y %H:%M:%S') %></span></a></li>
+        <li><a><%if request.estado.to_i == 1 %>Solicitante<%else %>Ultimo consumo <%end %> <span class="pull-right badge bg-orange"><%= User.find(request.usuario).nombre_usuario.titleize %></span></a></li>
+        <li><a><%if request.estado.to_i == 1 %>Fecha<%else %>Fecha cierre<%end %> <span class="pull-right badge bg-aqua-active"><%= request.fecha.strftime('%d-%m-%Y %H:%M:%S') %></span></a></li>
         <li><a>Estado <span class="pull-right badge bg-red-gradient"><%= Situation.find(request.estado).descrip_estado_producto.titleize %></span></a></li>
       </ul>
     </div> <!--cierre box body-->
+    <div class="box-footer">
+      <%if request.estado.to_i == 1 %>
+        <%=link_to "Producto consumido", change_state_re_path(request.id), remote: true,class: 'btn bg-orange btn-sm'%>
+      <%else %>
+        <label><small><b>Producto consumido</b><span class="text-muted"> Se borrará en 3 días</span></small></label>
+      <%end %>
+    </div>
   </div> <!--cierre caja del producto-->
 </div> <!--cierre de grilla de bootstrap-->

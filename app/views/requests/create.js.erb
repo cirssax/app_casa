@@ -3,6 +3,8 @@
   <% if @tipo == "success" %>
     $("#container_requests").prepend('<%= j render @request %>');
     $("#request_<%= @request.id %>").hide().fadeIn(1000);
+
+    $('table tbody tr#<%= @product.id %>').replaceWith(' <%= j render "row", product: @product %>');
   <% end %>
 
     $("#modal-request").modal('hide');

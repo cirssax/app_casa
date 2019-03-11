@@ -11,6 +11,9 @@ class BrandsController < ApplicationController
     else
       @mensaje = "Seccion exclusiva para administrador"
     end
+
+    #Borrado del producto que lleva en aviso mas de dos días
+
   end
 
   # POST /brands

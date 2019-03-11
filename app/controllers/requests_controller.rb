@@ -44,6 +44,12 @@ class RequestsController < ApplicationController
             @request.estado = 1
             @request.producto = producto
             @request.usuario = current_user.id
+
+            @product = Product.find($id)
+            stock = @product.stock
+            nuevo = stock.to_i - @request.cantidad.to_i
+            @product.update_attribute :stock, nuevo
+
             respond_to do |format|
               if @request.save
                 format.js
@@ -88,6 +94,23 @@ class RequestsController < ApplicationController
 
   def destroy
 
+  end
+
+  def change_state
+    @request = Request.find(params[:id])
+    respond_to do |format|
+      format.html {redirect_to @request, notice: "Producto consumido"}
+      format.json {render :show, status: :created, location: @request}
+      format.js
+      @titulo_estado = "Producto consumido"
+      @mensaje_estado = "Producto consumido"
+      @tipo_estado = "success"
+      @icono_estado = "icon fa fa-check"
+      @request.update_attribute :estado, "2"
+      @request.update_attribute :fecha, DateTime.now
+      @request.update_attribute :usuario, current_user.id
+
+    end
   end
 
   private
