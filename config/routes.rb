@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :codes
   resources :products
+
+  get '/products/:brand/:type/filter', to: 'products#filter', as: 'filter_product'
   resources :brands
   resources :home
 

@@ -45,8 +45,23 @@ class Users::SessionsController < Devise::SessionsController
           end
         end
       else
-        flash[:success] = "Datos incorrectos"
-        redirect_to new_user_session_url
+        usuario = User.find_by_email(login.downcase)
+        if usuario
+          if usuario.estado == 2
+            flash[:danger] = "Usuario inactivo"
+            redirect_to new_user_session_url
+          else
+            if usuario.valid_password?(params[:user][:password])
+              sign_in_and_redirect usuario
+            else
+              flash[:warning] = "Datos incorrectos"
+              redirect_to new_user_session_url
+            end
+          end
+        else
+          flash[:success] = "Datos incorrectos"
+          redirect_to new_user_session_url
+        end
       end
     end
   end

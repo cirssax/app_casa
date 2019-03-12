@@ -3,6 +3,11 @@ class ProductsController < ApplicationController
   has_scope :by_types, type: :array
   has_scope :by_brands, type: :array
 
+  def filter
+
+  end
+
+
   # GET /products
   # GET /products.json
   def index
@@ -179,6 +184,7 @@ class ProductsController < ApplicationController
     return val
   end
 
+
   def ValidProdDel(id_producto)
     val = true
     aux = Request.find_by_producto(id_producto)
@@ -186,5 +192,36 @@ class ProductsController < ApplicationController
       val = false
     end
     return val
+  end
+
+
+  def ListaMarcas
+    @brands = Brand.order(:descrip_marca)
+    @Lista = []
+    @brands.each do |brand|
+      nodo = Nodo.new(brand.id, brand.descrip_marca)
+      @Lista.push(nodo)
+    end
+    return  @Lista
+  end
+
+  def ListaTipos
+    @types = Type.order(:descrip_tipo)
+    @Lista = []
+    @types.each do |type|
+      nodo = Nodo.new(type.id, type.descrip_tipo)
+      @Lista.push(nodo)
+    end
+    return @Lista
+  end
+
+  class Nodo
+    attr_accessor :id
+    attr_accessor :descripcion
+
+    def initialize(id, descrip)
+      @id = id
+      @descripcion = descrip.titleize
+    end
   end
 end

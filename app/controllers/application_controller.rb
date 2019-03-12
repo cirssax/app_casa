@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   auto_session_timeout 5.minutes #control de la sesion inactiva con máximo 5 minutos
 
   def inicio
-
+    
   end
 
   def about

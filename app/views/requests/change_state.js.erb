@@ -1,6 +1,8 @@
 <% if @request.errors.empty? %>
 
   <% if @tipo_estado == "success" %>
+    $("#modal-change").modal('hide');
+
     $("#request_<%= @request.id %>").fadeOut(1000, function(){
         $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
         $("#container_requests").prepend('<%= j render @request %>');
