@@ -32,7 +32,7 @@ gem 'layer-handler'
 
 gem 'pundit'
 
-gem 'bootstrap', '~> 4.2.1'
+gem "bootstrap", ">= 4.3.1"
 
 gem 'has_scope'
 
