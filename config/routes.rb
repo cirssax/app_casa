@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :requests
 
-  get '/request/:id/state', to: 'requests#change_state', as: 'change_state_re'
+  get '/request/:iden/state', to: 'requests#change_state', as: 'change_state_re'
 
   resources :roles
   resources :situations

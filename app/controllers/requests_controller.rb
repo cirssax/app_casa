@@ -97,7 +97,8 @@ class RequestsController < ApplicationController
   end
 
   def change_state
-    @request = Request.find(params[:id])
+    @request = Request.find(params[:iden])
+    puts Product.find(@request.producto.to_i).nombre_producto.to_s
     respond_to do |format|
       format.html {redirect_to @request, notice: "Producto consumido"}
       format.json {render :show, status: :created, location: @request}
@@ -123,8 +124,10 @@ class RequestsController < ApplicationController
     val = true
     lista_consumo.each do |consumo|
       if consumo.producto.to_i == producto_consumo
-        val = false
-        break
+        if consumo.estado.to_i == 1
+          val = false
+          break
+        end
       end
     end
     return val

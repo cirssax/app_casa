@@ -2,6 +2,10 @@
   <td class="text-center"><%=product.nombre_producto.titleize %></td>
   <td class="text-center"><%=product.stock %></td>
   <td class="text-center">
-    <%=link_to 'Consumir', edit_request_path(product.id), remote: true,class: 'btn btn-success btn-sm' %>
+    <%if product.stock.to_i >0 %>
+      <%=link_to 'Consumir', edit_request_path(product.id), remote: true,class: 'btn btn-success btn-sm' %>
+    <%else %>
+      <button class="btn btn-success btn-sm" disabled="disabled">Consumir</button>
+    <%end %>
   </td>
 </tr>

@@ -17,7 +17,7 @@
     </div> <!--cierre box body-->
     <div class="box-footer">
       <%if request.estado.to_i == 1 %>
-        <button type="button" class="btn bg-orange btn-xs" data-toggle="modal" data-target="#modal-change">Producto consumido</button>
+        <button type="button" class="btn bg-orange btn-xs" data-toggle="modal" data-target="#modal-change-<%=request.id%>">Producto consumido</button>
       <%else %>
         <button type="button" class="btn bg-orange btn-xs" disabled="disabled">Producto consumido</button>
       <%end %>
@@ -25,21 +25,23 @@
   </div> <!--cierre caja del producto-->
 </div> <!--cierre de grilla de bootstrap-->
 
-<div class="modal modal-warning fade" id="modal-change">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">¿Producto consumido?</h4>
+<%if request.estado.to_i == 1 %>
+  <div class="modal modal-warning fade" id="modal-change-<%=request.id%>">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">¿Producto consumido?</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
+          <%=link_to "Si", change_state_re_path(request.id), remote: true, class: 'btn btn-outline'%>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">No</button>
-        <%=link_to "Si", change_state_re_path(request.id), remote: true,class: 'btn btn-outline'%>
-      </div>
+      <!-- /.modal-content -->
     </div>
-    <!-- /.modal-content -->
+    <!-- /.modal-dialog -->
   </div>
-  <!-- /.modal-dialog -->
-</div>
+<%end %>
 

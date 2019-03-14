@@ -1,14 +1,14 @@
 <% if @request.errors.empty? %>
 
   <% if @tipo_estado == "success" %>
-    $("#modal-change").modal('hide');
+    $("#modal-change-<%=@request.id%>").modal('hide');
 
-    $("#request_<%= @request.id %>").fadeOut(1000, function(){
+    $("#request_<%= @request.id%>").fadeOut(1000, function(){
         $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
         $("#container_requests").prepend('<%= j render @request %>');
-        $("#request_<%= @request.id %>").hide().fadeIn(1000);
+        $("#request_<%= @request.id%>").hide().fadeIn(1000);
     });
-    <% end %>
+  <% end %>
 
     var html = "<div id='mensaje' class='mensaje'> \n" +
         "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
@@ -38,5 +38,5 @@
     });
 
 <% else %>
-  alert('<%= @product.errors.full_messages[0] %>');
+  alert('<%= @request.errors.full_messages[0] %>');
 <% end %>
