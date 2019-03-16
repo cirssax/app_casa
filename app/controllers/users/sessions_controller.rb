@@ -7,11 +7,12 @@ class Users::SessionsController < Devise::SessionsController
   auto_session_timeout_actions
 
   def active
-   render_session_status
+    render_session_status devise_model: 'user'
   end
 
   def timeout
-    render_session_timeout
+    #render_session_timeout
+    render_session_timeout path: new_user_session_path, flash_name: 'alert', flash_message: 'Sesión expirada.'
   end
 
   # GET /resource/sign_in

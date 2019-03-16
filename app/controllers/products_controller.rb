@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
-  has_scope :by_types, type: :array
-  has_scope :by_brands, type: :array
 
   def filter
 

@@ -23,7 +23,7 @@ Devise.setup do |config|
 
 
   #Tiempo de cierre de sesion
-  config.timeout_in = 5.minute
+  config.timeout_in = 1.minute
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

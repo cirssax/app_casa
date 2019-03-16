@@ -3,20 +3,20 @@ class HomeController < ApplicationController
 
   def index
     @products = Product.all
-    @requests = Request.all
+    @requests = Request.where("estado = 1")
     @users = User.all
     @products_low = Product.where("stock < 3")
 
     #Eliminacion de los productos en consumo que llevan mas de dos días
     fecha_actual = DateTime.now
     dia_actual = fecha_actual.strftime("%d").to_i
-    dia_actual = dia_actual - 2
+    dia_actual = dia_actual - 7
     @request = Request.all
     @request.each do |request|
       if request.estado.to_i == 2 #Caso en que está eliminado
-        if request.fecha.strftime("%d").to_i == dia_actual
+        if request.fecha.strftime("%d").to_i <= dia_actual.to_i
           hora_actual = fecha_actual.strftime("%H")
-          if request.fecha.strftime("%H") == hora_actual
+          if request.fecha.strftime("%H").to_i <= hora_actual.to_i
             request.destroy
           end
         end

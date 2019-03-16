@@ -19,7 +19,10 @@
 <div class="wrapper">
 
   <% if current_user %>
-    <%=  auto_session_timeout_js frequency: 20 %>
+    <%= auto_session_timeout_js verbosity: 0,     # 2 - display all logs, 1 - display some logs, 0 - hides all logs
+                                frequency: 60,    #in seconds
+                                refresh_rate: 20, #in seconds
+                                devise_model: 'user' %>
   <%  end %>
 
   <%= render partial: 'admin/shared/header' %>
