@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "users/sessions" }
-  #devise_for :users, module: "users",:path_prefix =>'devise' #rutaspara el modulo de user devise
+  #devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :users, module: "users",:path_prefix =>'devise' #rutaspara el modulo de user devise
 
   #Layouts renderizados para los controles de inactividad
   match 'active'  => 'sessions#active',  via: :get

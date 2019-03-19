@@ -8,19 +8,21 @@ class HomeController < ApplicationController
     @products_low = Product.where("stock < 3")
 
     #Eliminacion de los productos en consumo que llevan mas de dos días
-    fecha_actual = DateTime.now
-    dia_actual = fecha_actual.strftime("%d").to_i
-    dia_actual = dia_actual - 7
-    @request = Request.all
-    @request.each do |request|
-      if request.estado.to_i == 2 #Caso en que está eliminado
-        if request.fecha.strftime("%d").to_i <= dia_actual.to_i
-          hora_actual = fecha_actual.strftime("%H")
-          if request.fecha.strftime("%H").to_i <= hora_actual.to_i
-            request.destroy
+    if Date.today.strftime("%A").downcase == 'sunday'
+      fecha_actual = DateTime.now
+      dia_actual = fecha_actual.strftime("%d").to_i
+      dia_actual = dia_actual - 7
+      @request = Request.all
+      @request.each do |request|
+        if request.estado.to_i == 2 #Caso en que está eliminado
+          if request.fecha.strftime("%d").to_i <= dia_actual.to_i
+            hora_actual = fecha_actual.strftime("%H")
+            if request.fecha.strftime("%H").to_i <= hora_actual.to_i
+              request.destroy
+            end
           end
         end
-       end
+      end
     end
   end
 

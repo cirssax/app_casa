@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_181415) do
+ActiveRecord::Schema.define(version: 2019_03_17_003955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(version: 2019_01_31_181415) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["descrip_estado"], name: "index_states_on_descrip_estado", unique: true
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "semana", default: "", null: false
+    t.integer "cantidad", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "types", force: :cascade do |t|
