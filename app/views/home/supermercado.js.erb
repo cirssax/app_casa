@@ -9,17 +9,14 @@
       scrollTop: $("#marca").offset().top
   }, 1000);
 
-  var html = "<div id='mensaje' class='mensaje'> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
-      "     <div class='box-body'>  "+
-      "      <div class='alert alert-info alert-dismissible'> \n" +
-      "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
-      "        <h5><i class='icon fa fa-info'></i> <b> Catálogos </b></h5> \n" +
-      "        Buscando catálogos disponibles" +
-      "      </div>\n" +
-      "    </div> </div> </div>";
+  var html ="<div class='box-body mensaje'> \n" +
+      "       <div class='alert alert-info alert-dismissible'> \n" +
+      "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
+      "         <h5 ><span class='fa fa-info'></span> <b> Catálogos</b></h5>\n" +
+      "         Buscando catálogos disponibles\n" +
+      "       </div> \n" +
+      "     </div>"
+
 
   html = $.parseHTML( html);
 
@@ -37,17 +34,14 @@
       scrollTop: $("#marca").offset().top
   }, 1000);
 
-  var html = "<div id='mensaje' class='mensaje'> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
-      "     <div class='box-body'>  "+
-      "      <div class='alert alert-danger alert-dismissible'> \n" +
-      "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
-      "        <h5><i class='icon fa fa-ban'></i> <b> Catálogos </b></h5> \n" +
-      "        No hay catálogos disponibles \n" +
-      "      </div>\n" +
-      "    </div> </div> </div>";
+var html ="<div class='box-body mensaje'> \n" +
+    "       <div class='alert alert-danger alert-dismissible'> \n" +
+    "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
+    "         <h5><i class='fa fa-info'></i>  <b>Catálogos</b></h5>\n" +
+    "         No hay catálogos disponibles\n" +
+    "       </div> \n" +
+    "     </div>"
+
 
   html = $.parseHTML( html);
 

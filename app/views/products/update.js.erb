@@ -10,28 +10,21 @@
 
   $("#modal-product").modal('hide');
   $("#EditarProducto_<%= @product.id %>").modal("hide"); //Cierre del modal
-  var html = "<div id='mensaje' class='mensaje'> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
-      "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
-      "     <div class='box-body'>  "+
-      "      <div class='alert alert-<%=@tipo_edit %> alert-dismissible'> \n" +
-      "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
-      "        <h5><i class='<%=@icono_edit %>'></i> <b> <%=@titulo_edit %> </b></h5> \n" +
-      "        <%=@mensaje_edit %> \n" +
-      "      </div>\n" +
-      "    </div> </div> </div>";
 
-  html = $.parseHTML( html);
+  var html ="<div class='box-body mensaje'> \n" +
+      "       <div class='alert alert-<%=@tipo_edit %> alert-dismissible'> \n" +
+      "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
+      "         <h5><i class='<%=@icono_edit %>'></i> <b> <%=@titulo_edit %> </b></h5>\n" +
+      "         <%=@mensaje_edit %>\n" +
+      "       </div> \n" +
+      "     </div>"
+
+  html = $.parseHTML(html);
 
   $("#alerta").append(html);
 
   $("#alerta").hide().fadeIn(1000);
 
-
-  $("html,body").animate({
-      scrollTop: $("#alerta").offset().top
-  }, 500);
 
   $(".mensaje").fadeOut(10000, function(){
       $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
