@@ -30,7 +30,6 @@ $(document).ready(function() {
     });
 
 
-
   $("#tabla").DataTable({
       'paging'      : true,
       'searching'   : false,

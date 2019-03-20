@@ -2,33 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2f1dbeb-45c7-44a7-a473-c3b548f162d1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application_back.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application_back.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application_back.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application_back.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/brands/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/brands/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/brands/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/brands/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/brands/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/brands/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/supermercado.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/supermercado.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/requests/change_state.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/requests/change_state.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/requests/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/requests/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/requests/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/requests/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roles/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roles/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roles/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roles/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/roles/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/roles/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/situations/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/situations/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/situations/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/situations/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/situations/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/situations/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/states/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/states/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/states/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/states/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/states/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/states/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/types/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/types/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/types/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/types/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/types/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/types/update.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/update.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/update.js.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -44,12 +20,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application_back.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="244">
+              <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -88,7 +64,6 @@
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application_back.js" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/codes/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/products/index.html.erb" />
@@ -99,7 +74,6 @@
         <option value="$PROJECT_DIR$/app/views/states/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/types/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/products/create.js.erb" />
         <option value="$PROJECT_DIR$/app/views/brands/create.js.erb" />
         <option value="$PROJECT_DIR$/app/views/products/update.js.erb" />
         <option value="$PROJECT_DIR$/app/views/home/supermercado.js.erb" />
@@ -117,6 +91,8 @@
         <option value="$PROJECT_DIR$/app/views/states/update.js.erb" />
         <option value="$PROJECT_DIR$/app/views/types/update.js.erb" />
         <option value="$PROJECT_DIR$/app/views/users/update.js.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application_back.js" />
+        <option value="$PROJECT_DIR$/app/views/products/create.js.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application_back.scss" />
       </list>
     </option>
@@ -158,50 +134,19 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="b2602c69:ProjectViewProjectNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="environments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="initializers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,12 +343,13 @@
       <workItem from="1552762149136" duration="1075000" />
       <workItem from="1552781951615" duration="1470000" />
       <workItem from="1552958230031" duration="1740000" />
-      <workItem from="1553035755747" duration="4898000" />
+      <workItem from="1553035755747" duration="6542000" />
+      <workItem from="1553051294812" duration="148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257468000" />
+    <option name="totallyTimeSpent" value="259260000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -418,7 +364,7 @@
     <frame x="0" y="28" width="1440" height="782" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1779053" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18077475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -431,7 +377,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4949785" visible="true" weight="0.2526636" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4949785" visible="true" weight="0.2526636" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5050215" side_tool="true" weight="0.2526636" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32901832" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -550,13 +496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -570,16 +509,6 @@
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/front/bootstrap/bootstrap.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16695" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application_back.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
@@ -729,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/products/create.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="14" selection-start-line="14" selection-end-line="20" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/brands/update.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -788,10 +710,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application_back.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/products/create.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application_back.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="244">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
         </state>
       </provider>
     </entry>
