@@ -30,6 +30,10 @@
       $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
   });
 
+  $('body, html').animate({
+      scrollTop: '0px'
+  },1000 );
+
 <% else %>
   alert('<%= @product.errors.full_messages[0] %>');
 <% end %>

@@ -16,25 +16,24 @@
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 
-<div class="wrapper">
+  <div class="wrapper">
 
-  <% if current_user %>
-    <%= auto_session_timeout_js verbosity: 0,     # 2 - display all logs, 1 - display some logs, 0 - hides all logs
-                                frequency: 300,    #in seconds
-                                refresh_rate: 20, #in seconds
-                                devise_model: 'user' %>
-  <%  end %>
+    <% if current_user %>
+      <%= auto_session_timeout_js verbosity: 0,     # 2 - display all logs, 1 - display some logs, 0 - hides all logs
+                                  frequency: 300,    #in seconds
+                                  refresh_rate: 20, #in seconds
+                                  devise_model: 'user' %>
+    <%  end %>
 
-  <%= render partial: 'admin/shared/header' %>
-  <%= render partial: 'admin/shared/sidebar' %>
-  <div class="content-wrapper">
-    <section class="content">
-      <%= render partial: 'admin/shared/messages' %>
-      <%= yield %>
-    </section>
+    <%= render partial: 'admin/shared/header' %>
+    <%= render partial: 'admin/shared/sidebar' %>
+    <div class="content-wrapper">
+      <section class="content">
+        <%= yield %>
+      </section>
+    </div>
+    <%= render partial: 'admin/shared/footer' %>
   </div>
-  <%= render partial: 'admin/shared/footer' %>
-</div>
 </body>
 
 <%= javascript_include_tag 'application_back' %>
