@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :permitted_parameters, if: :devise_controller?
 
-  auto_session_timeout 1.minutes #control de la sesion inactiva con máximo 5 minutos
+  auto_session_timeout 5.minutes #control de la sesion inactiva con máximo 5 minutos
 
   def inicio
     

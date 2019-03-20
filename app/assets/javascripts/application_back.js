@@ -8,13 +8,20 @@
 //= require back/plugins/datatables/dataTables.bootstrap.min.js
 
 $(document).ready(function() {
-
-    $("#Subir").on('click', function () {
-        $("body,html").animate({ // aplicamos la función animate a los tags body y html
-            scrollTop: 0 //al colocar el valor 0 a scrollTop me volverá a la parte inicial de la página
-        }, 1000); //el valor 700 indica que lo ara en 700 mili segundos
-        return false; //rompe el bucle
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 0){
+            $('.ir-arriba').slideDown(300);
+        } else {
+            $('.ir-arriba').slideUp(300);
+        };
     });
+
+    $('.ir-arriba').click(function(){
+        $('body, html').animate({
+            scrollTop: '0px'
+        },1000 );
+    });
+
 
     $("#Bajar").on('click', function () {
         $('html, body').animate({

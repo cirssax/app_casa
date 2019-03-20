@@ -11,3 +11,16 @@
 @import "back/skins/skin-green-light";*/
 @import "back/skins/skin-green";
 
+.ir-arriba {
+  border-radius:100%;
+  padding:10px;
+  display:inline-block;
+  background: #00c0ef;
+  color:#fff;
+  position: fixed;
+  font-size:20px;
+  bottom:5px;
+  right:5px;
+  display:none;
+  cursor:pointer;
+}
