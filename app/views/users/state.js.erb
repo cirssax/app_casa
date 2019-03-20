@@ -4,17 +4,13 @@
 
     $('table tbody tr#<%= @user.id %>').replaceWith(' <%= j render "row", user: @user %>');
 
-    var html = "<div id='mensaje' class='mensaje'> \n" +
-        "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
-        "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
-        "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
-        "     <div class='box-body'>  "+
-        "      <div class='alert alert-<%=@tipo_estado %> alert-dismissible'> \n" +
-        "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
-        "        <h5><i class='<%=@icono_estado %>'></i> <b> <%=@titulo_estado %> </b></h5> \n" +
-        "        <%=@mensaje_estado %> \n" +
-        "      </div>\n" +
-        "    </div> </div> </div>";
+    var html ="<div class='box-body mensaje'> \n" +
+        "       <div class='alert alert-<%=@tipo_estado %> alert-dismissible'> \n" +
+        "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
+        "         <h5><i class='<%=@icono_estado %>'></i> <b> <%=@titulo_estado %> </b></h5>\n" +
+        "         <%=@mensaje_estado %>\n" +
+        "       </div> \n" +
+        "     </div>"
 
     html = $.parseHTML( html);
 
@@ -28,17 +24,13 @@
 
   <% else %>
 
-    var html = "<div id='mensaje' class='mensaje'> \n" +
-        "    <div class='col-lg-4 col-md-4 col-sm-0 col-xs-0'></div> \n" +
-        "    <div class='col-lg-4 col-md-4 col-sm-2 col-xs-2'></div> \n" +
-        "    <div class='col-lg-4 col-md-4 col-sm-10 col-xs-10'> \n" +
-        "     <div class='box-body'>  "+
-        "      <div class='alert alert-<%=@tipo_estado %> alert-dismissible'> \n" +
-        "        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button> \n" +
-        "        <h5><i class='<%=@icono_estado %>'></i> <b> <%=@titulo_estado %> </b></h5> \n" +
-        "        <%=@mensaje_estado %> \n" +
-        "      </div>\n" +
-        "    </div> </div> </div>";
+    var html ="<div class='box-body mensaje'> \n" +
+        "       <div class='alert alert-<%=@tipo_estado %> alert-dismissible'> \n" +
+        "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
+        "         <h5><i class='<%=@icono_estado %>'></i> <b> <%=@titulo_estado %> </b></h5>\n" +
+        "         <%=@mensaje_estado %>\n" +
+        "       </div> \n" +
+        "     </div>"
 
     html = $.parseHTML( html);
 

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2f1dbeb-45c7-44a7-a473-c3b548f162d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/admin/shared/_footer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/shared/_footer.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/shared/_sidebar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/shared/_sidebar.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/state.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/state.js.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -20,11 +19,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/shared/_sidebar.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="435">
               <caret line="29" column="73" selection-start-line="29" selection-start-column="73" selection-end-line="29" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/users/state.js.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="32" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/users/update.js.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="22" column="19" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="22" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -42,7 +59,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/request.rb" />
         <option value="$PROJECT_DIR$/app/controllers/brands_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/products/_product.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/requests_controller.rb" />
@@ -93,6 +109,7 @@
         <option value="$PROJECT_DIR$/app/views/products/update.js.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/shared/_footer.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/shared/_sidebar.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/users/state.js.erb" />
       </list>
     </option>
   </component>
@@ -135,15 +152,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="b2602c69:ProjectViewProjectNode" />
@@ -352,12 +361,12 @@
       <workItem from="1552958230031" duration="1740000" />
       <workItem from="1553035755747" duration="6542000" />
       <workItem from="1553051294812" duration="477000" />
-      <workItem from="1553106628418" duration="3060000" />
+      <workItem from="1553106628418" duration="3262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262649000" />
+    <option name="totallyTimeSpent" value="262851000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -413,7 +422,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20190317002824_tabla_historial.rb" />
     <entry file="file://$PROJECT_DIR$/db/migrate/20190317003955_create_stories.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -610,13 +618,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/requests/update.js.erb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/update.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/types/update.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -740,8 +741,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/shared/_sidebar.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="435">
           <caret line="29" column="73" selection-start-line="29" selection-start-column="73" selection-end-line="29" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/update.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/state.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="32" selection-end-column="21" />
         </state>
       </provider>
     </entry>
