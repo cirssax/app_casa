@@ -3,9 +3,12 @@
 //= require back/plugins/bootstrap/bootstrap.min.js
 //= require back/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min
 //= require back/app
+//= require back/plugins/raphael/raphael-min.js
+//= require back/plugins/morris/morris.js
 //= require back/plugins/jQueryUI/jquery-ui.min.js
 //= require back/plugins/datatables/jquery.dataTables.min.js
 //= require back/plugins/datatables/dataTables.bootstrap.min.js
+//= require back/plugins/fastclick/fastclick.js
 
 $(document).ready(function() {
     $(window).scroll(function(){
@@ -80,5 +83,8 @@ $(document).ready(function() {
       localStorage.setItem('sidebar-state', 'sidebar-collapse');
     }
   });
+
+
+
 
 });

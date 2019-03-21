@@ -7,6 +7,10 @@ class HomeController < ApplicationController
     @users = User.all
     @products_low = Product.where("stock < 3")
 
+    @cristobal = Request.where("usuario = 4 AND estado = 1")
+    @nury = Request.where("usuario = 3 AND estado = 1")
+    @ricardo = Request.where("usuario = 2 AND estado = 1")
+
     #Eliminacion de los productos en consumo que llevan mas de dos días
     if Date.today.strftime("%A").downcase == 'sunday'
       fecha_actual = DateTime.now

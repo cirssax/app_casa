@@ -1,3 +1,4 @@
+
 <section class="content-header">
   <h1>
     Dashboard
@@ -67,5 +68,37 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Consumo de productos por usuario</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body chart-responsive">
+          <div id="myfirstchart" style="height: 250px;"></div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+  </div>
   <span class="ir-arriba fa fa-arrow-circle-up"></span>
 </section>
+<script>
+    //DONUT CHART
+    var donut = new Morris.Donut({
+        element: 'myfirstchart',
+        resize: true,
+        colors: ["#bcbc00", "#f50598", "#0000a6"],
+        data: [
+            {label: "Cristobal", value: <%=@cristobal.length.to_i %>},
+            {label: "Nury", value: <%=@nury.length.to_i %>},
+            {label: "Ricardo", value: <%=@ricardo.length.to_i %>}
+        ],
+        hideHover: 'auto'
+    });
+</script>
