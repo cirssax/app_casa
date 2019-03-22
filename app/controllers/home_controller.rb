@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @products = Product.all
-    @requests = Request.order(:created_at).where("estado = 1")
+    @requests = Request.order(created_at: :desc).where("estado = 1")
     @users = User.all
     @products_low = Product.where("stock < 3")
     @stories = Story.order(:updated_at)
