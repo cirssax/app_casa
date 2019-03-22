@@ -1,14 +1,68 @@
 <% if @product.errors.empty? %>
 
   <% if @tipo_edit == "success" %>
+    $("#modal-product").modal('hide');
     $("#product_<%= @product.id %>").fadeOut(1000, function(){
         $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
         $("#container_products").prepend('<%= j render @product %>');
         $("#product_<%= @product.id %>").hide().fadeIn(1000);
     });
+
+  <%else %>
+    var NombreProd = $(".product_nombre").val().trim();
+    var StockProd = $(".product_stock").val().trim();
+    var MarcaProd = $(".product_marca option:selected").val().trim();
+    var TipoProd = $(".product_tipo option:selected").val().trim();
+    var Ubicacion = $(".product_ubicacion").val().trim();
+
+
+    if (NombreProd.length == 0 || NombreProd == null || NombreProd == ""){
+        $("#nombre").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+        $("#ErrorNombre").html("Ingrese nombre");
+    }else{
+        $("#nombre").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
+        $("#ErrorNombre").html("");
+    }
+
+    if (StockProd.length == 0 || StockProd == null || StockProd == ""){
+        $("#stock").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+        $("#ErrorCantidad").html("Ingrese cantidad");
+    }else{
+        StockProd = parseInt(StockProd);
+        if (StockProd <= 0){
+            $("#stock").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+            $("#ErrorCantidad").html("Ingrese cantidad mayor a cero");
+        }else{
+            $("#stock").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
+            $("#ErrorCantidad").html("");
+        }
+    }
+
+    if (MarcaProd.length == 0 || MarcaProd == null || MarcaProd == ""){
+        $("#marca").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+        $("#ErrorMarca").html("Ingrese marca");
+    }else{
+        $("#marca").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
+        $("#ErrorMarca").html("");
+    }
+
+    if (TipoProd.length == 0 || TipoProd == null || TipoProd == ""){
+        $("#tipo").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+        $("#ErrorTipo").html("Ingrese tipo");
+    }else{
+        $("#tipo").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
+        $("#ErrorTipo").html("");
+    }
+
+    if (Ubicacion.length == 0 || Ubicacion == null || Ubicacion == ""){
+        $("#ubicacion").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12 has-error");
+        $("#ErrorUbicacion").html("Ingrese ubicacion");
+    }else{
+        $("#ubicacion").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12");
+        $("#ErrorUbicacion").html("");
+    }
   <% end %>
 
-  $("#modal-product").modal('hide');
   $("#EditarProducto_<%= @product.id %>").modal("hide"); //Cierre del modal
 
   var html ="<div class='box-body mensaje'> \n" +

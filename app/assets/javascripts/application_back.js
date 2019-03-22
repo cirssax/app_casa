@@ -11,6 +11,13 @@
 //= require back/plugins/fastclick/fastclick.js
 
 $(document).ready(function() {
+
+    $("#BtnProducto").on('click', function () {
+
+
+
+    });
+
     $(window).scroll(function(){
         if ($(this).scrollTop() > 0){
             $('.ir-arriba').slideDown(300);

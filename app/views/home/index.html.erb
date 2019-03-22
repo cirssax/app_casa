@@ -72,7 +72,7 @@
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
       <div class="box box-success">
         <div class="box-header with-border">
-          <h3 class="box-title">Consumo de productos por usuario</h3>
+          <h3 class="box-title">Consumo de cada uno</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -80,7 +80,78 @@
           </div>
         </div>
         <div class="box-body chart-responsive">
-          <div id="myfirstchart" style="height: 250px;"></div>
+          <div id="myfirstchart"></div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Consumos anteriores</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body chart-responsive">
+          <div class="chart" id="bar-chart"></div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h4>Ultimos 10 consumos</h4>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th style="width: 5px">Solicitante</th>
+              <th style="width: 15px">Producto</th>
+              <th style="width: 25px">Cantidad</th>
+              <th style="width: 25px">Fecha</th>
+              <th style="width: 25px">Hora</th>
+            </tr>
+            </thead>
+            <tbody>
+              <%if @requests.length.to_i < 10 %>
+                <%@requests.each do |request| %>
+                  <tr>
+                    <td><%=User.find(request.usuario).nombre_usuario.titleize %> <%=User.find(request.usuario).apellidos_usuario.titleize %></td>
+                    <td><%=Product.find(request.producto).nombre_producto.titleize %></td>
+                    <td><%=request.cantidad %></td>
+                    <td><%=request.fecha.strftime("%d-%m-%Y") %></td>
+                    <td><%=request.fecha.strftime("%H:%M") %></td>
+                  </tr>
+                <%end %>
+              <%else %>
+                <%for i in(0..9) %>
+                  <tr>
+                    <td><%=User.find(@requests[i].usuario).nombre_usuario.titleize %> <%=User.find(@requests[i].usuario).apellidos_usuario.titleize %></td>
+                    <td><%=Product.find(@requests[i].producto).nombre_producto.titleize %></td>
+                    <td><%=@requests[i].cantidad %></td>
+                    <td><%=@requests[i].fecha.strftime("%d-%m-%Y") %></td>
+                    <td><%=@requests[i].fecha.strftime("%H:%M") %></td>
+                  </tr>
+                <%end %>
+              <%end %>
+            </tbody>
+            <tfoot>
+            <tr>
+              <th style="width: 5px">Solicitante</th>
+              <th style="width: 15px">Producto</th>
+              <th style="width: 25px">Cantidad</th>
+              <th style="width: 25px">Fecha</th>
+              <th style="width: 25px">Hora</th>
+            </tr>
+            </tfoot>
+          </table>
         </div>
         <!-- /.box-body -->
       </div>
@@ -99,6 +170,21 @@
             {label: "Nury", value: <%=@nury.length.to_i %>},
             {label: "Ricardo", value: <%=@ricardo.length.to_i %>}
         ],
+        hideHover: 'auto'
+    });
+
+    var bar = new Morris.Bar({
+        element: 'bar-chart',
+        resize: true,
+        data: [
+            {y: '<%=@stories[0].semana.to_s %>', a: <%=@stories[0].cantidad.to_i %>},
+            {y: '<%=@stories[1].semana.to_s %>', a: <%=@stories[1].cantidad.to_i %>},
+            {y: '<%=@stories[2].semana.to_s %>', a: <%=@stories[2].cantidad.to_i %>}
+        ],
+        barColors: ['#00a65a'],
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Productos consumidos'],
         hideHover: 'auto'
     });
 </script>
