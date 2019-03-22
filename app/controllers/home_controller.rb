@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     @products_low = Product.where("stock < 3")
     @stories = Story.order(:updated_at)
 
-    @cristobal = Request.where("usuario = 1 AND estado = 1") #cambiar id a 4
+    @cristobal = Request.where("usuario = 4 AND estado = 1") #cambiar id a 4
     @nury = Request.where("usuario = 3 AND estado = 1")
     @ricardo = Request.where("usuario = 2 AND estado = 1")
 
