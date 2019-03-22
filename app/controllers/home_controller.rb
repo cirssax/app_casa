@@ -46,7 +46,7 @@ class HomeController < ApplicationController
             dia = 28 - dia.to_i
           end
         end
-        semana = dia.to_s +"-"+ mes.to_s
+        semana = "sem "+dia.to_s+"-"+ mes.to_s
         #Rotacion de registros semanales
 
         #Rotacion del registro 1 al 2 y perdida del 2
@@ -139,11 +139,12 @@ class HomeController < ApplicationController
           @ListaOferta.push(nodo)
         end
       end
-
-
     end
   end
 
+  def low
+    @products_low = Product.order(:stock).where("stock < 3")
+  end
 
   private
   #0

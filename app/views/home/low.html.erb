@@ -1,0 +1,38 @@
+<section class="content">
+  <div class="row ">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="box box-danger">
+        <div class="box-header with-border">
+          <h3 class="headline text-red"><span class="fa fa-exclamation-triangle"></span> <b>Productos con bajo Stock</b>  <small class="text-muted"> productos con stock menor a 3</small></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+            <tr class="danger">
+              <th style="width: 5px">Producto</th>
+              <th style="width: 15px">Cantidad</th>
+            </tr>
+            </thead>
+            <tbody>
+              <%@products_low.each do |product| %>
+                <tr>
+                  <td><%=product.nombre_producto.titleize %> </td>
+                  <td><%=product.stock %></td>
+                </tr>
+              <%end %>
+            </tbody>
+            <tfoot>
+            <tr class="danger">
+              <th style="width: 5px">Producto</th>
+              <th style="width: 15px">Cantidad</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+  <span class="ir-arriba fa fa-arrow-circle-up"></span>
+</section>

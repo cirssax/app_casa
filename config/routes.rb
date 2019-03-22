@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  #devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :users, module: "users",:path_prefix =>'devise' #rutaspara el modulo de user devise
-
+  root 'home#index'
   #Layouts renderizados para los controles de inactividad
   match 'active'  => 'sessions#active',  via: :get
   match 'timeout' => 'sessions#timeout', via: :get
@@ -9,7 +8,6 @@ Rails.application.routes.draw do
   resources :users #rutas personalizadas para crear usuarios
 
   get '/users/:id/:estado/state', to: 'users#state', as: 'change_state' #update
-  #put '/users/:id/:estado/state', to: 'users#state', as: 'change_state' #update
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -21,6 +19,7 @@ Rails.application.routes.draw do
   resources :home
 
   get '/home/:id/supermercado', to: 'home#supermercado', as: 'select_supermercado'
+  get '/home/:id/low', to: 'home#low', as: 'low_stock'
 
   resources :requests
 
@@ -30,7 +29,5 @@ Rails.application.routes.draw do
   resources :situations
   resources :states
   resources :types
-
-  root 'home#index'
 
 end
