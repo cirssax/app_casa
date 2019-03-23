@@ -168,7 +168,7 @@ class HomeController < ApplicationController
   private
   def LowProducts
     @Lista = []
-    @products = Product.order(stock: :desc).where("stock < 3")
+    @products = Product.order(:stock).where("stock < 3")
     @products.each do |product|
       nodo = LowStock.new(product.nombre_producto, product.stock, product.id)
       @Lista.push(nodo)
