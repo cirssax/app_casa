@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.order(:nombre_producto)
-    @product = Product.new
+
   end
 
   # GET /products/1
