@@ -136,7 +136,7 @@
                     <td><%=User.find(@requests[i].usuario).nombre_usuario.titleize %> <%=User.find(@requests[i].usuario).apellidos_usuario.titleize %></td>
                     <td><%=Product.find(@requests[i].producto).nombre_producto.titleize %></td>
                     <td><%=@requests[i].cantidad %></td>
-                    <%@var = DateTime.new(@requests[i].fecha.year,@requests[i].fecha.month,@requests[i].fecha.day,@requests[i].fecha.hour-3,@requests[i].fecha.min) %>
+                    <%@var = DateTime.new(@requests[i].fecha.year,@requests[i].fecha.month,@requests[i].fecha.day,@requests[i].fecha.hour-3) %>
                     <td><%=@var.strftime("%d-%m-%Y") %></td>
                     <td><%=@var.strftime("%H:%M") %></td>
                   </tr>
