@@ -8,9 +8,28 @@ class HomeController < ApplicationController
     @products_low = Product.where("stock < 3")
     @stories = Story.order(:updated_at)
 
-    @cristobal = Request.where("usuario = 4 AND estado = 1") #cambiar id a 4
-    @nury = Request.where("usuario = 3 AND estado = 1")
-    @ricardo = Request.where("usuario = 2 AND estado = 1")
+    #Productos consumidos por usuario: Cristobal
+    @request1 = Request.where("usuario = 4 AND estado = 1") #cambiar id a 4
+    i=0
+    @request1.each do |request|
+      i = i + request.cantidad.to_i
+    end
+    @cristobal = i
+    i=0
+    #Productos consumidos por usuario: Nury
+    @request1 = Request.where("usuario = 3 AND estado = 1")
+    @request1.each do |request|
+      i = i + request.cantidad.to_i
+    end
+    @nury = i
+    i=0
+
+    #Productos consumidos por usuario: Ricardo
+    @request1 = Request.where("usuario = 2 AND estado = 1")
+    @request1.each do |request|
+      i = i + request.cantidad.to_i
+    end
+    @ricardo = i
 
     #Eliminacion de los productos en consumo que llevan mas de dos días
     if Date.today.strftime("%A").downcase == 'sunday'
@@ -143,10 +162,20 @@ class HomeController < ApplicationController
   end
 
   def low
-    @products_low = Product.order(:stock).where("stock < 3")
+    @products_low = LowProducts()
   end
 
   private
+  def LowProducts
+    @Lista = []
+    @products = Product.order(stock: :desc).where("stock < 3")
+    @products.each do |product|
+      nodo = LowStock.new(product.nombre_producto, product.stock, product.id)
+      @Lista.push(nodo)
+    end
+    return @Lista
+  end
+
   #0
   class Lider
     attr_accessor :parse_page2
@@ -474,6 +503,21 @@ class HomeController < ApplicationController
     def initialize(supermercado, id)
       @supermercados = supermercado
       @id = id
+    end
+  end
+
+  class LowStock
+    attr_accessor :nombre_producto
+    attr_accessor :stock
+    def initialize(nombre, cantidad, id)
+      @nombre_producto = nombre.titleize
+      @consumo = Request.where("producto = ? AND estado = 1", id)
+      if @consumo.size == 0
+        @stock = cantidad.to_s
+      else
+        @stock = cantidad.to_s+"  (hay "+@consumo[0].cantidad.to_s+" en consumo)"
+      end
+
     end
   end
 end
