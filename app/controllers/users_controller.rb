@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :allow_without_password, only: [:update]
+
   # GET /users
   # GET /users.json
   def index

@@ -180,9 +180,9 @@
         resize: true,
         data: [
             {y: 'Consumo actual', a: <%=@requests.length %>},
-            {y: '<%=@stories[0].semana.to_s %>', a: <%=@stories[0].cantidad.to_i %>},
-            {y: '<%=@stories[1].semana.to_s %>', a: <%=@stories[1].cantidad.to_i %>},
-            {y: '<%=@stories[2].semana.to_s %>', a: <%=@stories[2].cantidad.to_i %>}
+            {y: '<%=@stories[0].semana %>', a: <%=@stories[0].cantidad.to_i %>},
+            {y: '<%=@stories[1].semana %>', a: <%=@stories[1].cantidad.to_i %>},
+            {y: '<%=@stories[2].semana %>', a: <%=@stories[2].cantidad.to_i %>}
         ],
         barColors: ['#00a65a'],
         xkey: 'y',
