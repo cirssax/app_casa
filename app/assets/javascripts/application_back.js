@@ -12,10 +12,57 @@
 
 $(document).ready(function() {
 
-    $("#BtnProducto").on('click', function () {
+
+    $("#IrGrafico").on('click', function () {
 
 
+        if (!($("#pto").length)){
+            var html ="<div class='box-body mensaje'> \n" +
+                "       <div class='alert alert-warning alert-dismissible'> \n" +
+                "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
+                "         <h5 ><span class='icon fa fa-warning'></span> <b> Notificación</b></h5>\n" +
+                "         Debe ir a 'inicio' para ver esta información \n" +
+                "       </div> \n" +
+                "     </div>"
 
+
+            html = $.parseHTML( html);
+
+            $("#alerta").append(html);
+
+            $("#alerta").hide().fadeIn(1000);
+
+            $(".mensaje").fadeOut(10000, function(){
+                $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+            });
+        }else{
+            $("#grafico_consumo").attr("class","box box-danger");
+
+            var html ="<div class='box-body mensaje'> \n" +
+                "       <div class='alert alert-info alert-dismissible'> \n" +
+                "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
+                "         <h5 ><span class='icon fa fa-info'></span> <b> Consumo</b></h5>\n" +
+                "         Actualización de consumo \n" +
+                "       </div> \n" +
+                "     </div>"
+
+
+            html = $.parseHTML( html);
+
+            $('html, body').animate({
+                scrollTop: $("#pto").offset().top
+            }, 1000);
+
+            $("#alerta").append(html);
+
+            $("#alerta").hide().fadeIn(1000);
+
+            $(".mensaje").fadeOut(10000, function(){
+                $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+            });
+
+            $("#grafico_consumo").attr("class","box box-info");
+        }
     });
 
     $(window).scroll(function(){

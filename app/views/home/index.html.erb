@@ -8,6 +8,15 @@
 
 <section class="content">
   <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div class="alert alert-info alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-info"></i> Alerta!</h4>
+        Recuerde revisar las notificaciones!.
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
       <!-- small box -->
       <div class="small-box bg-aqua">
@@ -85,8 +94,8 @@
         <!-- /.box-body -->
       </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <div class="box box-success">
+    <div id="pto" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div id="grafico_consumo" class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">Consumos anteriores</h3>
           <div class="box-tools pull-right">
@@ -160,6 +169,9 @@
     </div>
   </div>
   <span class="ir-arriba fa fa-arrow-circle-up"></span>
+  <div class="row alerta" id="alerta" hidden="hidden">
+
+  </div>
 </section>
 <script>
     //DONUT CHART
