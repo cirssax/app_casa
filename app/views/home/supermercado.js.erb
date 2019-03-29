@@ -12,7 +12,7 @@
   var html ="<div class='box-body mensaje'> \n" +
       "       <div class='alert alert-info alert-dismissible'> \n" +
       "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
-      "         <h5 ><span class='icon fa fa-info'></span> <b> Catálogos</b></h5>\n" +
+      "         <h5><span class='icon fa fa-info'></span> <b> Catálogos</b></h5>\n" +
       "         Buscando catálogos disponibles\n" +
       "       </div> \n" +
       "     </div>"
@@ -34,16 +34,17 @@
       scrollTop: $("#marca").offset().top
   }, 1000);
 
-var html ="<div class='box-body mensaje'> \n" +
-    "       <div class='alert alert-danger alert-dismissible'> \n" +
-    "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
-    "         <h5><i class='fa fa-ban></i>  <b>Catálogos</b></h5>\n" +
-    "         No hay catálogos disponibles\n" +
-    "       </div> \n" +
-    "     </div>"
+
+  var html ="<div class='box-body mensaje'> \n" +
+      "       <div class='alert alert-danger alert-dismissible'> \n" +
+      "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>\n" +
+      "         <h5><span class='icon fa fa-ban'></span>  <b>Catálogos</b></h5>\n" +
+      "         No hay catálogos disponibles\n" +
+      "       </div> \n" +
+      "     </div>"
 
 
-  html = $.parseHTML( html);
+  html = $.parseHTML(html);
 
   $("#alerta").append(html);
 
