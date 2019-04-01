@@ -15,11 +15,10 @@ group :production do
   gem 'pg', '>= 0.18', '< 2.0'
   gem 'rails_12factor', group: :production
 end
-#
+
 
 gem 'auto-session-timeout' #gema para controlar el tiempo de inactividad
 
-gem 'toastr-rails'
 
 gem 'cancancan', '~> 2.0'
 

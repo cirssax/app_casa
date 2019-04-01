@@ -12,7 +12,6 @@
 
 $(document).ready(function() {
 
-
     $("#IrGrafico").on('click', function () {
 
 
