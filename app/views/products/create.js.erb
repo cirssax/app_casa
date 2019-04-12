@@ -25,8 +25,12 @@
         $("#nombre").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
         $("#ErrorNombre").html("Ingrese nombre");
     }else{
-        $("#nombre").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
-        $("#ErrorNombre").html("");
+        <% if @tipo == "success" %>
+          $("#nombre").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
+          $("#ErrorNombre").html("");
+        <%else %>
+          $("#nombre").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+        <%end %>
     }
 
     if (StockProd.length == 0 || StockProd == null || StockProd == ""){
@@ -38,8 +42,12 @@
             $("#stock").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
             $("#ErrorCantidad").html("Ingrese cantidad mayor a cero");
         }else{
-            $("#stock").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
-            $("#ErrorCantidad").html("");
+            <% if @tipo == "success" %>
+              $("#stock").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
+              $("#ErrorCantidad").html("");
+            <%else %>
+              $("#stock").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+            <%end %>
         }
     }
 
@@ -47,24 +55,38 @@
         $("#marca").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
         $("#ErrorMarca").html("Ingrese marca");
     }else{
-        $("#marca").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
-        $("#ErrorMarca").html("");
+        <% if @tipo == "success" %>
+          $("#marca").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
+          $("#ErrorMarca").html("");
+        <%else %>
+          $("#marca").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+        <%end %>
     }
 
     if (TipoProd.length == 0 || TipoProd == null || TipoProd == ""){
         $("#tipo").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
         $("#ErrorTipo").html("Ingrese tipo");
     }else{
-        $("#tipo").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
-        $("#ErrorTipo").html("");
+        <% if @tipo == "success" %>
+          $("#tipo").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12");
+          $("#ErrorTipo").html("");
+        <%else %>
+          $("#tipo").attr("class", "col-lg-6 col-md-6 col-sm-12 col-xs-12 has-error");
+
+        <%end %>
     }
 
     if (Ubicacion.length == 0 || Ubicacion == null || Ubicacion == ""){
         $("#ubicacion").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12 has-error");
         $("#ErrorUbicacion").html("Ingrese ubicacion");
     }else{
-        $("#ubicacion").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12");
-        $("#ErrorUbicacion").html("");
+        <% if @tipo == "success" %>
+          $("#ubicacion").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12");
+          $("#ErrorUbicacion").html("");
+        <%else %>
+          $("#ubicacion").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12 has-error");
+
+        <%end %>
     }
   <% end %>
 

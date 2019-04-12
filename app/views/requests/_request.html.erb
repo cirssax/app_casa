@@ -11,7 +11,7 @@
       <ul class="nav nav-stacked">
         <li><a>Cantidad <span class="pull-right badge bg-green-gradient"><%= request.cantidad %></span></a></li>
         <li><a><%if request.estado.to_i == 1 %>Solicitante<%else %>Consumidor<%end %> <span class="pull-right badge bg-orange"><%= User.find(request.usuario).nombre_usuario.titleize %></span></a></li>
-        <%@var = DateTime.new(request.fecha.year, request.fecha.month, request.fecha.day, request.fecha.hour-3) %>
+        <%@var = DateTime.new(request.fecha.year, request.fecha.month, request.fecha.day, request.fecha.hour-4) %>
         <li><a><%if request.estado.to_i == 1 %>Fecha<%else %>Fecha cierre<%end %> <span class="pull-right badge bg-aqua-active"><%= @var.strftime('%d-%m-%Y %H:00') %></span></a></li>
         <li><a>Estado <span class="pull-right badge <%if request.estado.to_i == 1 %> bg-teal-gradient <%else %> bg-red-gradient <%end %>"><%= Situation.find(request.estado).descrip_estado_producto.titleize %></span></a></li>
       </ul>

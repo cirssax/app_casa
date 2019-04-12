@@ -12,9 +12,10 @@
         <div class="modal-body">
           <div class="row">
             <div class="form-group">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div id="cantidad" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <%= f.label :cantidad %><br>
-                <%= f.text_field :cantidad, class: "form-control tipo_nombre", type: "number", placeholder: "Cantidad a consumir"%>
+                <%= f.text_field :cantidad, class: "form-control cantidad_request", type: "number", placeholder: "Cantidad a consumir"%>
+                <small id="ErrorCantidad" class="help-block"></small>
               </div>
             </div>
           </div>

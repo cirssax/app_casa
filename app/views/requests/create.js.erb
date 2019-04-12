@@ -1,13 +1,38 @@
 <% if @request.errors.empty? %>
 
   <% if @tipo == "success" %>
+    $("#modal-request").modal('hide');
+
     $("#container_requests").prepend('<%= j render @request %>');
     $("#request_<%= @request.id %>").hide().fadeIn(1000);
 
     $('table tbody tr#<%= @product.id %>').replaceWith(' <%= j render "row", product: @product %>');
-  <% end %>
 
-    $("#modal-request").modal('hide');
+  <%else %>
+    var StockProd = $(".cantidad_request").val().trim();
+    if (StockProd.length == 0 || StockProd == null || StockProd == ""){
+        $("#cantidad").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12 has-error");
+        $("#ErrorCantidad").html("Ingrese cantidad");
+    }else{
+        StockProd = parseInt(StockProd);
+        if (StockProd <= 0){
+            $("#cantidad").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12 has-error");
+            $("#ErrorCantidad").html("Ingrese cantidad mayor a cero");
+        }else{
+            <%if @tipo == "success" %>
+              $("#cantidad").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12");
+              $("#ErrorCantidad").html("");
+            <%else %>
+              $("#cantidad").attr("class", "col-lg-12 col-md-12 col-sm-12 col-xs-12 has-error");
+              $("#ErrorCantidad").html("<%=@mensaje %>");
+            <%end %>
+        }
+    }
+<% end %>
+
+
+
+
 
     var html ="<div class='box-body mensaje'> \n" +
         "       <div class='alert alert-<%=@tipo %> alert-dismissible'> \n" +
@@ -27,9 +52,11 @@
         $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
     });
 
+  <% if @tipo == "success" %>
     $("html,body").animate({
         scrollTop: $("#marca_up").offset().top
     }, 1000);
+  <%end %>
 
 <% else %>
   alert('<% @situation.errors.full_messages.each do |msg| %><%= msg %>\n<% end %>');
