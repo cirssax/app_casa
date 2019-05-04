@@ -136,35 +136,47 @@ class HomeController < ApplicationController
 
       if id == 0
         scraper = Lider.new
+        markers = "Lider"
       elsif id == 1
         scraper = Jumbo.new
+        markers = "Jumbo"
       elsif id == 2
         scraper = Tottus.new
+        markers = "Tottus"
       elsif id == 3
         scraper = LiderExpress.new
+        markers = "Lider Express"
       elsif id == 4
         scraper = Unimarc.new
+        markers = "Unimarc"
       elsif id == 5
         scraper = SantaIsabel.new
+        markers = "Santa Isabel"
       elsif id == 6
         scraper = Alvi.new
+        markers = "Alvi"
       elsif id == 7
         scraper = Mayorista.new
+        markers = "Mayorista 10"
       else
         scraper = SuperAcuenta.new
+        markers = "Super Bodega Acuenta"
       end
 
       nombres = scraper.get_nombre
-      markers = scraper.get_markers
       dates = scraper.get_date
       catalogos = scraper.get_catalogo
+
+      puts "\n"
+      puts catalogos.size
+      puts "\n"
 
       @ListaOferta = []
 
       (0..catalogos.size).each do |i|
         if i < catalogos.size
           #puts "https://www.tiendeo.cl"+catalogos[i]["data-link"].to_s
-          nodo = Campo.new(markers[i], nombres[i], dates[i], catalogos[i]["data-link"])
+          nodo = Campo.new(markers, nombres[i], dates[i], catalogos[i]["data-link"])
           @ListaOferta.push(nodo)
         end
       end
@@ -196,25 +208,29 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
   end
 
@@ -228,26 +244,31 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
+
   end
 
   #2
@@ -260,26 +281,31 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
+
   end
 
   #3
@@ -292,26 +318,31 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
+
   end
 
   #4
@@ -324,26 +355,31 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
+
   end
 
   #5
@@ -356,26 +392,31 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
+
   end
 
   #6
@@ -388,26 +429,31 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
+
   end
 
   #7
@@ -420,26 +466,31 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
+
   end
 
   #8
@@ -452,26 +503,31 @@ class HomeController < ApplicationController
     end
 
     def get_markers
-      item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
+      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
     end
 
     def get_nombre
-      item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
+      item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
     def get_date
-      item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      #item_container.css(".badges.visible-list").css("span.badgerow.badge-expiration").children.map { |date| date.text}.compact
+      item_container.css(".c·catalog__stats.hide-link-find").css("p.o·daysleft.typo-caption-12-reg").children.map { |date| date.text}.compact
     end
 
     def get_catalogo
-      item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
+      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
     end
 
     private
 
     def item_container
-      parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".cr-top-4.item.catalogo")
+      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
+
   end
 
 

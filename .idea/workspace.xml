@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f1dbeb-45c7-44a7-a473-c3b548f162d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/products/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/create.js.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/requests/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/requests/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/requests/_request.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/requests/_request.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/requests/create.js.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/requests/create.js.erb" afterDir="false" />
-    </list>
+    <list default="true" id="f2f1dbeb-45c7-44a7-a473-c3b548f162d1" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/log/" />
@@ -55,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/products/create.js.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-11">
-              <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+              <caret line="87" selection-start-line="87" selection-end-line="87" />
             </state>
           </provider>
         </entry>
@@ -418,12 +411,12 @@
       <workItem from="1553893926263" duration="4893000" />
       <workItem from="1554133014411" duration="898000" />
       <workItem from="1554494406988" duration="710000" />
-      <workItem from="1555101679540" duration="1532000" />
+      <workItem from="1555101679540" duration="1809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311150000" />
+    <option name="totallyTimeSpent" value="311427000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -436,7 +429,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1440" height="782" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15064563" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -806,7 +798,7 @@
     <entry file="file://$PROJECT_DIR$/app/views/products/create.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11">
-          <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
         </state>
       </provider>
     </entry>
