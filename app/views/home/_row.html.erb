@@ -8,7 +8,7 @@
     </tr>
   <%elsif  ofert.fecha.to_i == 0%>
     <tr class="danger">
-      <td><span class="fa fa-exclamation-triangle"></span><%=ofert.supermercado %></td>
+      <td><span class="fa fa-exclamation-triangle"></span> <%=ofert.supermercado %></td>
       <td><%=ofert.nombre_oferta %></td>
       <td>Vence hoy</td>
       <td><a type="button" class="btn btn-danger" href="<%=ofert.enlace%>" target="blank"><span class="fa fa-exclamation-triangle"></span> Catálogo</a></td>

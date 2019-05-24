@@ -207,10 +207,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -229,7 +225,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
   end
@@ -243,10 +240,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -265,7 +258,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
 
@@ -280,10 +274,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -302,7 +292,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
 
@@ -317,10 +308,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -339,7 +326,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
 
@@ -354,10 +342,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -376,7 +360,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
 
@@ -391,10 +376,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -413,7 +394,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
 
@@ -428,10 +410,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -450,7 +428,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
 
@@ -465,10 +444,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -487,7 +462,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
 
@@ -502,10 +478,6 @@ class HomeController < ApplicationController
       @parse_page2 ||= Nokogiri::HTML(doc2)
     end
 
-    def get_markers
-      #item_container.css(".badgerow.badge-cat").css("span.hide-link-find").children.map{|markers| markers.text}.compact
-    end
-
     def get_nombre
       #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
@@ -524,7 +496,8 @@ class HomeController < ApplicationController
     private
 
     def item_container
-      parse_page2.css(".cr-top-4.item.catalogo")
+      parse_page2.css(".c·catalog.item.catalogo")
+      #parse_page2.css(".cr-top-4.item.catalogo")
       #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
     end
 
