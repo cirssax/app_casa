@@ -19,6 +19,29 @@
       </div>
     </div>
   <%end %>
+  <%if current_user.rol == 3 %>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="box box-warning">
+          <div class="box-header with-border">
+            <h4><i class="fa fa-warning text-yellow"></i> Alerta</h4>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <div class="alert alert-warning alert-dismissible">
+                <h4><i class="icon fa fa-warning"></i> Alerta!</h4>
+                Usted es usuario invitado, por ende hay sectores a los cuales no tiene acceso
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+    </div>
+  <%end %>
   <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
       <!-- small box -->
@@ -30,7 +53,11 @@
         <div class="icon">
           <i class="fa fa-opencart"></i>
         </div>
-        <a href="/products" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%if current_user.rol != 3 %>
+          <a href="/products" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%else %>
+          <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%end %>
       </div>
     </div>
 
@@ -44,7 +71,11 @@
         <div class="icon">
           <i class="fa fa-plus-square-o"></i>
         </div>
-        <a href="/requests" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%if current_user.rol !=3  %>
+          <a href="/requests" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%else %>
+          <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%end %>
       </div>
     </div>
 
@@ -76,7 +107,11 @@
         <div class="icon">
           <i class="fa fa-cart-arrow-down"></i>
         </div>
-        <a href="/home/<%=@products_low.length %>/low" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%if current_user.rol !=3 %>
+          <a href="/home/<%=@products_low.length %>/low" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%else %>
+          <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+        <%end %>
       </div>
     </div>
   </div>
@@ -113,6 +148,7 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="box box-info">

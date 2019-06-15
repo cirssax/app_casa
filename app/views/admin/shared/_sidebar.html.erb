@@ -12,10 +12,15 @@
     </div>
 
     <ul class="sidebar-menu">
-      <li class="header"><%= t('admin.sidebar.Navegación principal') %></li>
-      <li> <%= link_to '<i class="fa fa-home"></i><span> Inicio</span>'.html_safe, home_index_path%> </li>
-      <li> <%= link_to '<i class="fa fa-opencart"></i><span> Productos</span>'.html_safe, products_path %> </li>
-      <li> <%= link_to '<i class="fa fa-check-square-o"></i><span> Productos en consumo</span>'.html_safe, requests_path %> </li>
+      <%if current_user.rol != 3 %>
+        <li class="header"><%= t('admin.sidebar.Navegación principal') %></li>
+        <li> <%= link_to '<i class="fa fa-home"></i><span> Inicio</span>'.html_safe, home_index_path%> </li>
+        <li> <%= link_to '<i class="fa fa-opencart"></i><span> Productos</span>'.html_safe, products_path %> </li>
+        <li> <%= link_to '<i class="fa fa-check-square-o"></i><span> Productos en consumo</span>'.html_safe, requests_path %> </li>
+      <%else %>
+        <li class="header"><%= t('admin.sidebar.Navegación principal') %></li>
+        <li> <%= link_to '<i class="fa fa-home"></i><span> Inicio</span>'.html_safe, home_index_path%> </li>
+      <%end %>
       <%if current_user.rol == 1 %>
         <li class="header"><%= t('admin.sidebar.administration') %></li>
         <li class="treeview">

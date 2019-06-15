@@ -1,3 +1,4 @@
+<%if current_user.rol != 3 %>
   <div class="box box-info" id="marca_up">
     <div class="box-header">
       <span>Productos en consumo</span>
@@ -45,3 +46,33 @@
   <div class="row alerta" id="alerta" hidden="hidden">
 
   </div>
+<%else %>
+  <section class="content-header">
+    <h1>
+      404 Error
+    </h1>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="error-page">
+      <h2 class="headline text-yellow"> 404</h2>
+
+      <div class="error-content">
+        <h3><i class="fa fa-warning text-yellow"></i> Oops! Pagina no encontrada.</h3>
+        <p>
+          No se pudo encontrar la página que está solicitando.
+          Por el momento se puede dirigir a la página de inicio: <%=link_to "volver al dashboard (inicio)", home_index_path %>.
+        </p>
+        <div class="col-md-12">
+          <div class="alert alert-warning alert-dismissible">
+            <h4><i class="icon fa fa-ban"></i> Alerta!</h4>
+            Usted es usuario invitado, no tiene acceso a esta sección
+          </div>
+        </div>
+      </div>
+      <!-- /.error-content -->
+    </div>
+    <!-- /.error-page -->
+  </section>
+<%end %>

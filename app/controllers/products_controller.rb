@@ -9,68 +9,121 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.order(:nombre_producto)
+    if current_user.rol !=3
+      @products = Product.order(:nombre_producto)
+    end
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
-    @product = Product.find(params[:id])
+    if current_user.rol !=3
+      @product = Product.find(params[:id])
+    end
   end
 
   # GET /products/new
   def new
-    @product = Product.new
+    if current_user.rol !=3
+      @product = Product.new
+    end
   end
 
   # GET /products/1/edit
   def edit
-    @product = Product.find(params[:id])
+    if current_user.rol != 3
+      @product = Product.find(params[:id])
+    end
   end
 
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
-    @productos = Product.all
+    if current_user.rol !=3
+        @product = Product.new(product_params)
+        @productos = Product.all
 
-    #Verificacion de que esten todos los campos llenos
-    if params[:product][:nombre_producto] == "" || params[:product][:marca] == "" || params[:product][:tipo] == "" || params[:product][:ubicacion] == ""
-      @titulo = "Creacion de producto"
-      @mensaje = "Debe llenar todos los campos"
-      @tipo = "warning"
-      @icono = "icon fa fa-warning"
-    else
-      if @product.stock.to_i < 0
-        @titulo = "Creacion de producto"
-        @mensaje = "La cantidad del producto debe ser mayor o igual a cero"
-        @tipo = "warning"
-        @icono = "icon fa fa-warning"
-      else
-        #verficacion de la repetitividad de productos
-        if !RepeticionNombre(@productos, @product.nombre_producto.upcase)#Retorna true si se encuentra
+        #Verificacion de que esten todos los campos llenos
+        if params[:product][:nombre_producto] == "" || params[:product][:marca] == "" || params[:product][:tipo] == "" || params[:product][:ubicacion] == ""
           @titulo = "Creacion de producto"
-          @mensaje = "Ya existe un producto con ese nombre"
+          @mensaje = "Debe llenar todos los campos"
           @tipo = "warning"
           @icono = "icon fa fa-warning"
         else
+          if @product.stock.to_i < 0
+            @titulo = "Creacion de producto"
+            @mensaje = "La cantidad del producto debe ser mayor o igual a cero"
+            @tipo = "warning"
+            @icono = "icon fa fa-warning"
+          else
+            #verficacion de la repetitividad de productos
+            if !RepeticionNombre(@productos, @product.nombre_producto.upcase)#Retorna true si se encuentra
+              @titulo = "Creacion de producto"
+              @mensaje = "Ya existe un producto con ese nombre"
+              @tipo = "warning"
+              @icono = "icon fa fa-warning"
+            else
+              respond_to do |format|
+                if @product.save
+                  format.html {redirect_to @product, notice: "Producto creado correctamente"}
+                  format.json {render :show, status: :created, location: @product}
+                  format.js
+                  @titulo = "Creacion de producto"
+                  @mensaje = "Producto se ha creado correctamete"
+                  @tipo = "success"
+                  @icono = "icon fa fa-check"
+                else
+                  format.html {render :new}
+                  format.json {render json: @product.errors, status: :unprocessable_entity}
+                  format.js
+                  @titulo = "Creacion de producto"
+                  @mensaje = "Ha ocurrido un error"
+                  @tipo = "danger"
+                  @icono = "icon fa fa-ban"
+                end
+              end
+            end
+          end
+        end
+    end
+  end
+
+  # PATCH /products/1
+  # PATCH /products/1.json
+  def update
+    if current_user.rol != 3
+      @product = Product.find(params[:id])
+      @productos = Product.all
+      if product_params[:nombre_producto] == "" || product_params[:marca] == "" || product_params[:tipo] == "" || product_params[:ubicacion] == ""
+        @titulo_edit = "Edicion de producto"
+        @mensaje_edit = "Debe llenar todos los campos"
+        @tipo_edit = "warning"
+        @icono_edit = "icon fa fa-warning"
+      else
+        #Varificacion de la existencia del nombre del producto
+        if !RepetecionNombreUpdate(@productos, params[:product][:nombre_producto], params[:id])
+          @titulo_edit = "Edicion de producto"
+          @mensaje_edit = "Ya existe un producto con ese nombre"
+          @tipo_edit = "warning"
+          @icono_edit = "icon fa fa-warning"
+        else
           respond_to do |format|
-            if @product.save
-              format.html {redirect_to @product, notice: "Producto creado correctamente"}
+            if @product.update(product_params)
+              format.html {redirect_to @product, notice: "Producto actualizado correctamente"}
               format.json {render :show, status: :created, location: @product}
               format.js
-              @titulo = "Creacion de producto"
-              @mensaje = "Producto se ha creado correctamete"
-              @tipo = "success"
-              @icono = "icon fa fa-check"
+              @titulo_edit = "Edicion de producto"
+              @mensaje_edit = "Producto se ha actualizado correctamete"
+              @tipo_edit = "success"
+              @icono_edit = "icon fa fa-check"
             else
               format.html {render :new}
               format.json {render json: @product.errors, status: :unprocessable_entity}
               format.js
-              @titulo = "Creacion de producto"
-              @mensaje = "Ha ocurrido un error"
-              @tipo = "danger"
-              @icono = "icon fa fa-ban"
+              @titulo_edit = "Edicion de producto"
+              @mensaje_edit = "Ha ocurrido un error"
+              @tipo_edit = "danger"
+              @icono_edit = "icon fa fa-ban"
             end
           end
         end
@@ -78,71 +131,32 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PATCH /products/1
-  # PATCH /products/1.json
-  def update
-    @product = Product.find(params[:id])
-    @productos = Product.all
-    if product_params[:nombre_producto] == "" || product_params[:marca] == "" || product_params[:tipo] == "" || product_params[:ubicacion] == ""
-      @titulo_edit = "Edicion de producto"
-      @mensaje_edit = "Debe llenar todos los campos"
-      @tipo_edit = "warning"
-      @icono_edit = "icon fa fa-warning"
-    else
-      #Varificacion de la existencia del nombre del producto
-      if !RepetecionNombreUpdate(@productos, params[:product][:nombre_producto], params[:id])
-        @titulo_edit = "Edicion de producto"
-        @mensaje_edit = "Ya existe un producto con ese nombre"
-        @tipo_edit = "warning"
-        @icono_edit = "icon fa fa-warning"
-      else
-        respond_to do |format|
-          if @product.update(product_params)
-            format.html {redirect_to @product, notice: "Producto actualizado correctamente"}
-            format.json {render :show, status: :created, location: @product}
-            format.js
-            @titulo_edit = "Edicion de producto"
-            @mensaje_edit = "Producto se ha actualizado correctamete"
-            @tipo_edit = "success"
-            @icono_edit = "icon fa fa-check"
-          else
-            format.html {render :new}
-            format.json {render json: @product.errors, status: :unprocessable_entity}
-            format.js
-            @titulo_edit = "Edicion de producto"
-            @mensaje_edit = "Ha ocurrido un error"
-            @tipo_edit = "danger"
-            @icono_edit = "icon fa fa-ban"
-          end
-        end
-      end
-    end
-  end
-
   def destroy
-    @product = Product.find(params[:id])
-    stock =  @product.stock
-    if stock.to_i > 0
-      @titulo_del = "Borrar producto"
-      @mensaje_del = "El producto seleccionado tiene una cantidad mayor a cero"
-      @tipo_del = "warning"
-      @icono_del = "icon fa fa-warning"
-    else
-      if !ValidProdDel(params[:id])
+    if current_user.rol != 3
+      @product = Product.find(params[:id])
+      stock =  @product.stock
+      if stock.to_i > 0
         @titulo_del = "Borrar producto"
-        @mensaje_del = "El producto seleccionado se encuentra en consumo"
+        @mensaje_del = "El producto seleccionado tiene una cantidad mayor a cero"
         @tipo_del = "warning"
         @icono_del = "icon fa fa-warning"
       else
-        @product.destroy
-        respond_to do |format|
-          format.html{redirect_to product_path, notice: "Producto borrado con exito"}
-          format.json{head :no_content}
-          format.js
+        if !ValidProdDel(params[:id])
           @titulo_del = "Borrar producto"
-          @mensaje_del = "Producto se ha borrado correctamente"
-          @tipo_del = "success"
-          @icono_del = "icon fa fa-check"
+          @mensaje_del = "El producto seleccionado se encuentra en consumo"
+          @tipo_del = "warning"
+          @icono_del = "icon fa fa-warning"
+        else
+          @product.destroy
+          respond_to do |format|
+            format.html{redirect_to product_path, notice: "Producto borrado con exito"}
+            format.json{head :no_content}
+            format.js
+            @titulo_del = "Borrar producto"
+            @mensaje_del = "Producto se ha borrado correctamente"
+            @tipo_del = "success"
+            @icono_del = "icon fa fa-check"
+          end
         end
       end
     end
