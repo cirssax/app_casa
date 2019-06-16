@@ -8,7 +8,7 @@
 
 
 <section class="content">
-  <%if Date.today.strftime("%A").downcase == 'sunday' || Date.today.strftime("%A").downcase == 'friday' %>
+  <%if (Date.today.strftime("%A").downcase == 'sunday' && current_user.rol != 3) || Date.today.strftime("%A").downcase == 'friday' %>
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="alert alert-info alert-dismissible">
