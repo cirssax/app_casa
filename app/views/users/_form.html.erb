@@ -59,7 +59,7 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <%= f.label :estado %>
-                    <%= f.collection_select :estado, State.order(:descrip_estado), :id, :descrip_estado,  {:include_blank =>true}, {:class => 'form-control select2 user_estado', style: "width: 100%;"}%>
+                    <%= f.collection_select :estado, State.order(:descrip_estado), :id, :descrip_estado  ,{:include_blank =>true}, {:class => 'form-control select2 user_estado', style: "width: 100%;", :disabled => "disabled"}%>
                   </div>
                 </div>
               </div>
