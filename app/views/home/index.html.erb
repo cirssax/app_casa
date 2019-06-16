@@ -28,146 +28,156 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-              <div class="alert alert-warning alert-dismissible">
-                <h4><i class="icon fa fa-warning"></i> Alerta!</h4>
-                Usted es usuario invitado, por ende hay sectores a los cuales no tiene acceso
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="">
+                <h2 class="headline text-yellow"> Invitado</h2>
+                <div class="error-content">
+                  <h4>Usted a accedido como usuario invitado</h4>
+                  <p>
+                    Solo tiene acceso a visualizar el entorno de "Ofertas".
+                    Puede acceder a estas yendo a la "campana" de notificaciones superior o haciendo clic en el siguiente boton:<br>
+                    <div class="text-center">
+                      <a href="/home/12" class="btn btn-app">
+                        <i class="fa fa-shopping-cart text-yellow"></i> Ofertas
+                      </a>
+                    </div>
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="col-md-3"></div>
           </div>
           <!-- /.box-body -->
         </div>
       </div>
     </div>
   <%end %>
-  <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <!-- small box -->
-      <div class="small-box bg-aqua">
-        <div class="inner">
-          <h3><%=@products.length %></h3>
-          <p>Productos</p>
-        </div>
-        <div class="icon">
-          <i class="fa fa-opencart"></i>
-        </div>
-        <%if current_user.rol != 3 %>
-          <a href="/products" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
-        <%else %>
-          <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
-        <%end %>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <!-- small box -->
-      <div class="small-box bg-green-gradient">
-        <div class="inner">
-          <h3><%=@requests.length %></h3>
-          <p>Productos en consumo</p>
-        </div>
-        <div class="icon">
-          <i class="fa fa-plus-square-o"></i>
-        </div>
-        <%if current_user.rol !=3  %>
-          <a href="/requests" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
-        <%else %>
-          <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
-        <%end %>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <!-- small box -->
-      <div class="small-box bg-orange-active">
-        <div class="inner">
-          <h3><%=@users.length %></h3>
-          <p>Usuarios</p>
-        </div>
-        <div class="icon">
-          <i class="fa fa-users"></i>
-        </div>
-        <%if current_user.rol == 1 %>
-          <a href="/users" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
-        <%else %>
-          <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
-        <%end %>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <!-- small box -->
-      <div class="small-box bg-red-gradient">
-        <div class="inner">
-          <h3><%=@products_low.length %></h3>
-          <p>Productos stock bajo</p>
-        </div>
-        <div class="icon">
-          <i class="fa fa-cart-arrow-down"></i>
-        </div>
-        <%if current_user.rol !=3 %>
-          <a href="/home/<%=@products_low.length %>/low" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
-        <%else %>
-          <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
-        <%end %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <div class="box box-success">
-        <div class="box-header with-border">
-          <h3 class="box-title">Consumo de cada uno</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
+  <%if current_user.rol != 3 %>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3><%=@products.length %></h3>
+            <p>Productos</p>
           </div>
-        </div>
-        <div class="box-body chart-responsive">
-          <div id="myfirstchart"></div>
-        </div>
-        <!-- /.box-body -->
-      </div>
-    </div>
-    <div id="pto" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <div id="grafico_consumo" class="box box-success">
-        <div class="box-header with-border">
-          <h3 class="box-title">Consumos anteriores</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
+          <div class="icon">
+            <i class="fa fa-opencart"></i>
           </div>
+          <%if current_user.rol != 3 %>
+            <a href="/products" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+          <%else %>
+            <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+          <%end %>
         </div>
-        <div class="box-body chart-responsive">
-          <div class="chart" id="bar-chart"></div>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <!-- small box -->
+        <div class="small-box bg-green-gradient">
+          <div class="inner">
+            <h3><%=@requests.length %></h3>
+            <p>Productos en consumo</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-plus-square-o"></i>
+          </div>
+          <%if current_user.rol !=3  %>
+            <a href="/requests" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+          <%else %>
+            <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+          <%end %>
         </div>
-        <!-- /.box-body -->
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <!-- small box -->
+        <div class="small-box bg-orange-active">
+          <div class="inner">
+            <h3><%=@users.length %></h3>
+            <p>Usuarios</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-users"></i>
+          </div>
+          <%if current_user.rol == 1 %>
+            <a href="/users" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+          <%else %>
+            <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+          <%end %>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <!-- small box -->
+        <div class="small-box bg-red-gradient">
+          <div class="inner">
+            <h3><%=@products_low.length %></h3>
+            <p>Productos stock bajo</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-cart-arrow-down"></i>
+          </div>
+          <%if current_user.rol !=3 %>
+            <a href="/home/<%=@products_low.length %>/low" class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+          <%else %>
+            <a class="small-box-footer">Detalles <i class="fa fa-arrow-circle-right"></i></a>
+          <%end %>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="box box-success">
+          <div class="box-header with-border">
+            <h3 class="box-title">Consumo de cada uno</h3>
 
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="box box-info">
-        <div class="box-header with-border">
-          <h4>Ultimos 10 consumos</h4>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="box-body chart-responsive">
+            <div id="myfirstchart"></div>
+          </div>
+          <!-- /.box-body -->
         </div>
-        <!-- /.box-header -->
-        <div class="box-body table-responsive no-padding">
-          <table class="table table-hover">
-            <thead>
-            <tr>
-              <th style="width: 5px">Solicitante</th>
-              <th style="width: 15px">Producto</th>
-              <th style="width: 25px">Cantidad</th>
-              <th style="width: 25px">Fecha</th>
-              <th style="width: 25px">Hora</th>
-            </tr>
-            </thead>
-            <tbody>
+      </div>
+      <div id="pto" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div id="grafico_consumo" class="box box-success">
+          <div class="box-header with-border">
+            <h3 class="box-title">Consumos anteriores</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="box-body chart-responsive">
+            <div class="chart" id="bar-chart"></div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="box box-info">
+          <div class="box-header with-border">
+            <h4>Ultimos 10 consumos</h4>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th style="width: 5px">Solicitante</th>
+                <th style="width: 15px">Producto</th>
+                <th style="width: 25px">Cantidad</th>
+                <th style="width: 25px">Fecha</th>
+                <th style="width: 25px">Hora</th>
+              </tr>
+              </thead>
+              <tbody>
               <%if @requests.length.to_i < 10 %>
                 <%@requests.each do |request| %>
                   <tr>
@@ -191,22 +201,24 @@
                   </tr>
                 <%end %>
               <%end %>
-            </tbody>
-            <tfoot>
-            <tr>
-              <th style="width: 5px">Solicitante</th>
-              <th style="width: 15px">Producto</th>
-              <th style="width: 25px">Cantidad</th>
-              <th style="width: 25px">Fecha</th>
-              <th style="width: 25px">Hora</th>
-            </tr>
-            </tfoot>
-          </table>
+              </tbody>
+              <tfoot>
+              <tr>
+                <th style="width: 5px">Solicitante</th>
+                <th style="width: 15px">Producto</th>
+                <th style="width: 25px">Cantidad</th>
+                <th style="width: 25px">Fecha</th>
+                <th style="width: 25px">Hora</th>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+          <!-- /.box-body -->
         </div>
-        <!-- /.box-body -->
       </div>
     </div>
-  </div>
+  <%end %>
+
   <span class="ir-arriba fa fa-arrow-circle-up hidden-lg"></span>
   <div class="row alerta" id="alerta" hidden="hidden">
 
