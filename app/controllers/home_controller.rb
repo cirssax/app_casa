@@ -32,13 +32,13 @@ class HomeController < ApplicationController
     @ricardo = i
 
     #Eliminacion de los productos en consumo que llevan mas de dos días
-    if Date.today.strftime("%A").downcase == 'sunday'
+    if Date.today.strftime("%A").downcase == 'saturday'
       fecha_actual = DateTime.now #captura fecha actual
       dia_domingo_actual = fecha_actual.strftime("%d").to_i #captura domingo actual
       mes_domingo_actual = fecha_actual.strftime("%m").to_i #captura del mes
       anio_domingo_actual = fecha_actual.strftime("%Y").to_i #captura año
       #Valor de registro semana
-      dia = dia_domingo_actual - 6
+      dia = dia_domingo_actual - 7
       if dia > 0 #caso en que el dia domingo es mayor fecha mayor a 6 y no cambia el mes
         mes = mes_domingo_actual
       else #caso en que el lunes anterior era de un mes diferente
