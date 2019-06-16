@@ -65,14 +65,14 @@ class HomeController < ApplicationController
         @request = Request.all
         @request.each do |request|
           if request.estado.to_i == 2 #Caso en que está eliminado
-            if request.fecha.strftime("%Y").to_i <= anio_domingo_actual.to_i #comparacion de que el año sea menor o igual
-              if request.fecha.strftime("%m").to_i <= mes_domingo_actual.to_i #comparacion de que el mes sea menor o igual
-                if request.fecha.strftime("%d").to_i <= dia_domingo_actual.to_i #comparacion de que el dia sea menor o igual
+            #if request.fecha.strftime("%Y").to_i <= anio_domingo_actual.to_i #comparacion de que el año sea menor o igual
+             # if request.fecha.strftime("%m").to_i <= mes_domingo_actual.to_i #comparacion de que el mes sea menor o igual
+                #if request.fecha.strftime("%d").to_i <= dia_domingo_actual.to_i #comparacion de que el dia sea menor o igual
                   i = i + 1
                   request.destroy
-                end
-              end
-            end
+                #end
+              #end
+           # end
           end
         end
         #Rotacion de registros semanales
