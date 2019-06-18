@@ -11,9 +11,20 @@
 //= require back/plugins/fastclick/fastclick.js
 
 $(document).ready(function() {
+    $("#ShowPass").on('click', function(){
+        if ($("#icono").attr("class") == "fa fa-lock")
+        {
+            $("#pass").attr("type", "text");
+            $("#icono").attr("class", "fa fa-unlock");
+        }
+        else
+        {
+            $("#pass").attr("type", "password");
+            $("#icono").attr("class", "fa fa-lock");
+        }
+    });
 
     $("#IrGrafico").on('click', function () {
-
 
         if (!($("#pto").length)){
             var html ="<div class='box-body mensaje'> \n" +
