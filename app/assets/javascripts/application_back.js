@@ -11,17 +11,41 @@
 //= require back/plugins/fastclick/fastclick.js
 
 $(document).ready(function() {
+
     $("#ShowPass").on('click', function(){
+        var msj = "";
+        var msj2 ="";
         if ($("#icono").attr("class") == "fa fa-lock")
         {
             $("#pass").attr("type", "text");
             $("#icono").attr("class", "fa fa-unlock");
+            msj = "Contraseña visible";
+            msj2 = "A continuación la contraseña sera visible";
         }
         else
         {
             $("#pass").attr("type", "password");
             $("#icono").attr("class", "fa fa-lock");
+            msj = "Contraseña no visible"
+            msj2= "La contraseña esta con una mascara";
         }
+        var html ="<div class='box-body mensaje'>" +
+            "       <div class='alert alert-warning alert-dismissible'>" +
+            "         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" +
+            "         <h5><i class='icon fa fa-warning'></i> <b>"+msj+"</b> </h5>\n" +
+                        msj2 +"\n"+
+            "       </div> \n" +
+            "     </div>"
+        html = $.parseHTML( html);
+
+        $("#alerta").append(html);
+
+        $("#alerta").hide().fadeIn(1000);
+
+        $(".mensaje").fadeOut(10000, function(){
+            $(this).remove();//Eliminar la tarjeta asociada al elemento que se acaba de seleccionar
+        });
+
     });
 
     $("#IrGrafico").on('click', function () {
