@@ -175,7 +175,6 @@ class HomeController < ApplicationController
 
       (0..catalogos.size).each do |i|
         if i < catalogos.size
-          #puts "https://www.tiendeo.cl"+catalogos[i]["data-link"].to_s
           nodo = Campo.new(markers, nombres[i], dates[i], catalogos[i]["data-link"])
           @ListaOferta.push(nodo)
         end
@@ -208,7 +207,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -218,16 +216,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
   end
 
@@ -241,7 +236,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -251,16 +245,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
 
   end
@@ -275,7 +266,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -285,16 +275,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
 
   end
@@ -309,7 +296,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -319,16 +305,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
 
   end
@@ -343,7 +326,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -353,16 +335,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
 
   end
@@ -377,7 +356,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -387,16 +365,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
 
   end
@@ -411,7 +386,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -421,16 +395,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
 
   end
@@ -445,7 +416,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -455,16 +425,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
 
   end
@@ -479,7 +446,6 @@ class HomeController < ApplicationController
     end
 
     def get_nombre
-      #item_container.css(".column.first").css("h4.item-heading.hide-link-find.catalog-item-heading").children.map { |nombres| nombres.text}.compact
       item_container.css(".c·catalog__description.hide-link-find").css("h3.c·catalog__title.typo-head-16-med").children.map {|nombres| nombres.text}.compact
     end
 
@@ -489,16 +455,13 @@ class HomeController < ApplicationController
     end
 
     def get_catalogo
-      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow.-back-fenix.-white-text.-size-medium.-padd-6-10.hide-link.offer-url")
-      #item_container.search("//a").css(".btn.btn-default.btn-transparent-red.hide-link.offer-url")
+      item_container.search("//a").css(".c·catalog__button-open-product.o·button-arrow")
     end
 
     private
 
     def item_container
-      parse_page2.css(".c·catalog.item.catalogo")
-      #parse_page2.css(".cr-top-4.item.catalogo")
-      #parse_page2.css(".item.col-xs-6.col-sm-4.col-md-4.col-lg-3.col-xl-2.catalogo.list-group-item")
+      parse_page2.css(".c·catalog.item.catalogo.js-print-item")
     end
 
   end
