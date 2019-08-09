@@ -172,10 +172,11 @@ class HomeController < ApplicationController
       puts "\n"
 
       @ListaOferta = []
-
+      j = 2
       (0..catalogos.size).each do |i|
         if i < catalogos.size
-          nodo = Campo.new(markers, nombres[i], dates[i], catalogos[i]["data-link"])
+          nodo = Campo.new(markers, nombres[i], dates[j], catalogos[i]["data-link"])
+          j = j + 3
           @ListaOferta.push(nodo)
         end
       end
