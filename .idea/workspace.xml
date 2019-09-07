@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f2f1dbeb-45c7-44a7-a473-c3b548f162d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application_back.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application_back.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +23,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="28" />
-    <option name="width" value="710" />
-    <option name="height" value="782" />
   </component>
   <component name="ProjectId" id="1PA8qlXKYhMvO1lCO0iO7C1FnRL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -156,7 +153,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="false" RAILS_SPRING_PRE_LOADER_OPTION="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -258,7 +255,11 @@
       <workItem from="1560896094633" duration="4048000" />
       <workItem from="1561225539127" duration="1215000" />
       <workItem from="1561333131326" duration="1798000" />
-      <workItem from="1565305741711" duration="2137000" />
+      <workItem from="1565305741711" duration="2366000" />
+      <workItem from="1565836162599" duration="90000" />
+      <workItem from="1566619563082" duration="278000" />
+      <workItem from="1566619913829" duration="63000" />
+      <workItem from="1567863903585" duration="150000" />
     </task>
     <servers />
   </component>
@@ -279,7 +280,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

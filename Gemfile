@@ -20,7 +20,6 @@ end
 gem 'auto-session-timeout' #gema para controlar el tiempo de inactividad
 
 
-gem 'cancancan', '~> 2.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
