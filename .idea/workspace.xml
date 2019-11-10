@@ -4,6 +4,7 @@
     <list default="true" id="f2f1dbeb-45c7-44a7-a473-c3b548f162d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application_back.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application_back.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
     </list>
@@ -259,7 +260,8 @@
       <workItem from="1565836162599" duration="90000" />
       <workItem from="1566619563082" duration="278000" />
       <workItem from="1566619913829" duration="63000" />
-      <workItem from="1567863903585" duration="150000" />
+      <workItem from="1567863903585" duration="458000" />
+      <workItem from="1573410790872" duration="533000" />
     </task>
     <servers />
   </component>
