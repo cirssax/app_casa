@@ -37,7 +37,7 @@ gem 'has_scope'
 gem 'jquery-rails'
 
 #Gemas para scraping
-gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+gem 'nokogiri', '~> 1.10'
 gem 'httparty', '~> 0.13.7'
 
 # Use SCSS for stylesheets
